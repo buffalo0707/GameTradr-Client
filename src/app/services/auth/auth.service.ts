@@ -16,4 +16,12 @@ export class AuthService {
       return this.http.post(updateUrl, JSON.stringify(body), { headers })
       .map((res:Response) => res.json());
     }
+
+  logout(user) {
+    const deleteUrl = `${this.apiUrl}/sign-out/${user._id}`;
+    let headers = new Headers();
+    headers.append('Authorization', `Token token=${user.token}`);
+    return this.http.delete(deleteUrl, {headers})
+      .map((res:Response) => res.json());
+  }
 }
