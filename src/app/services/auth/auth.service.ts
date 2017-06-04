@@ -24,4 +24,13 @@ export class AuthService {
     return this.http.delete(deleteUrl, {headers})
       .map((res:Response) => res.json());
   }
+
+  register(user) {
+    console.log('logging in')
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const registerUrl = `${this.apiUrl}/sign-up`;
+    return this.http.post(registerUrl, JSON.stringify(user), { headers })
+    .map((res:Response) => res.json());
+  }
 }
