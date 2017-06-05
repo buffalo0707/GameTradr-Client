@@ -16,8 +16,18 @@ export class ListingsComponent implements OnInit {
     ngOnInit() {
       this.listingService.onListingsRetrieved((data) =>{
         this.listings = data.listings
-        console.log('listings is', this.listings)
       })
+    }
+
+    onDelete(listing) {
+      this.listingService.delete(listing.id)
+      .subscribe(
+        res => {
+          this.ngOnInit()
+        },
+        error => {
+          console.log(error)
+        })
     }
 
 }
