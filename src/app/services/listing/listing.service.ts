@@ -9,13 +9,19 @@ export class ListingService {
   private selectedItem: any;
   constructor(private http: Http) { }
 
-  get(): Observable<Response> {
+  getListings(): Observable<Response> {
     return this.http.get(this.apiUrl)
     .map((res:Response) => res.json());
   }
 
   onListingsRetrieved(callback: any): void {
-  this.get().subscribe(callback);
+  this.getListings().subscribe(callback);
+  }
+
+  getListing(id): Observable<Response> {
+    console.log('id', id)
+    return this.http.get(`${this.apiUrl}/${id}`)
+    .map((res:Response) => res.json());
   }
 
   create(listing): Observable<Response> {
@@ -33,5 +39,12 @@ export class ListingService {
     .map((res:Response) => res.json());
   }
 
+  editListing(listing): Observable<Response> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    return this.http.patch(`${this.apiUrl}/${listing.listing.id}`, JSON.stringify(listing), { headers })
+    .map((res:Response) => res.json());
+  }
 
 }

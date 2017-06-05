@@ -29,5 +29,7 @@ export class ListingsComponent implements OnInit {
           console.log(error)
         })
     }
-
+    onEdit(listing) {
+      this.router.navigate(['edit-listing', listing.id]);
+    }
 }

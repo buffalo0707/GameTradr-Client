@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component';
 import { NewListingComponent } from './new-listing/new-listing.component';
+import { EditListingComponent } from './edit-listing/edit-listing.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
    { path: 'register',  component: RegisterComponent },
    { path: 'password',  component: PasswordComponent },
    { path: 'listings',  component: ListingsComponent },
-   { path: 'new-listing',  component: NewListingComponent }
+   { path: 'new-listing',  component: NewListingComponent },
+   { path: 'edit-listing/:id',  component: EditListingComponent }
 ]
 
 @NgModule({

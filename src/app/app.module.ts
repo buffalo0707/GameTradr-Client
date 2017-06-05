@@ -14,7 +14,8 @@ import { AuthService } from './services/auth/auth.service';
 import { ListingService } from './services/listing/listing.service';
 import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component';
-import { NewListingComponent } from './new-listing/new-listing.component'
+import { NewListingComponent } from './new-listing/new-listing.component';
+import { EditListingComponent } from './edit-listing/edit-listing.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewListingComponent } from './new-listing/new-listing.component'
     RegisterComponent,
     PasswordComponent,
     ListingsComponent,
-    NewListingComponent
+    NewListingComponent,
+    EditListingComponent
   ],
   imports: [
     BrowserModule,
