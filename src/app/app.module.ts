@@ -12,10 +12,13 @@ import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './services/auth/auth.service';
 import { ListingService } from './services/listing/listing.service';
+import { GameService } from './services/game/game.service';
+
 import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component';
 import { NewListingComponent } from './new-listing/new-listing.component';
-import { EditListingComponent } from './edit-listing/edit-listing.component'
+import { EditListingComponent } from './edit-listing/edit-listing.component';
+import { SystemListComponent } from './system-list/system-list.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { EditListingComponent } from './edit-listing/edit-listing.component'
     PasswordComponent,
     ListingsComponent,
     NewListingComponent,
-    EditListingComponent
+    EditListingComponent,
+    SystemListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ import { EditListingComponent } from './edit-listing/edit-listing.component'
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService, ListingService],
+  providers: [AuthService, ListingService, GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
