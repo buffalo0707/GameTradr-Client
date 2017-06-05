@@ -16,6 +16,16 @@ export class ListingService {
 
   onListingsRetrieved(callback: any): void {
   this.get().subscribe(callback);
-}
+  }
+
+  create(listing): Observable<Response> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    console.log(headers)
+    return this.http.post(this.apiUrl, JSON.stringify(listing), { headers })
+    .map((res:Response) => res.json());
+  }
+
 
 }

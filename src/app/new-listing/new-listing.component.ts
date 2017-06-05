@@ -21,6 +21,17 @@ export class NewListingComponent implements OnInit {
   }
 
   onCreate() {
-    console.log('creating', this.listing)
+    this.listingService.create(this.listing)
+      .subscribe(
+        res => {
+          console.log(res)
+          this.loading = false
+          this.router.navigate(['listings']);
+        },
+        error => {
+          console.log(error)
+          this.loading = false
+        }
+      )
   }
 }
