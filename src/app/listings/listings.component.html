@@ -1,3 +1,5 @@
-<p>
-  listings works!
-</p>
+<ul>
+  <li *ngFor="let listing of listings">
+    {{listing.game.name}} ({{listing.game.system}}) for {{listing.wanted.name}} ({{listing.wanted.system}})
+  </li>
+</ul>

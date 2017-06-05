@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './services/auth/auth.service';
+import { ListingService } from './services/listing/listing.service';
 import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component'
 
@@ -29,7 +30,7 @@ import { ListingsComponent } from './listings/listings.component'
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, ListingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
