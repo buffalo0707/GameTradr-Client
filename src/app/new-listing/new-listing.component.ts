@@ -14,7 +14,9 @@ export class NewListingComponent implements OnInit {
     wanted: {}
   }
   systems: any = []
-  loading: false
+  games: any = []
+  loading = false
+  disableGame = true
   constructor(
     private listingService: ListingService,
     private gameService: GameService,
@@ -41,4 +43,19 @@ export class NewListingComponent implements OnInit {
         }
       )
   }
+
+  enableGame(){
+    this.disableGame = false
+  }
+
+  gameSearch(){
+    let query = {}
+    query['system']= this.listing.game.system
+    query['name']=this.listing.game.name
+    console.log('query is', query)
+    this.gameService.onGamesRetrieved(query, (data: any) =>{
+      this.games = data.Data.Game
+    })
+  }
+
 }

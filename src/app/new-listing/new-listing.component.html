@@ -4,19 +4,34 @@
           <div class="col-md-6 col-md-offset-3">
   <h2>Sign Up!</h2>
   <form name="form">
-      <div class="form-group" >
-          <label for="game-name">Game</label>
-          <input type="text" class="form-control" name="game-name" [(ngModel)]="listing.game.name" />
-          <!-- <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div> -->
-      </div>
-      <div class="form-group" >
-          <label for="game-system">System</label>
-          <select name="game-system" [(ngModel)]="listing.game.system">
-                <option *ngFor="let system of systems" [value]="system.name">{{system.name}}</option>
-            </select>
+    <div class="form-group" >
+        <label for="game-system">System</label>
+        <select name="game-system" [(ngModel)]="listing.game.system" (change)="enableGame()">
+              <option *ngFor="let system of systems" [value]="system.name" >{{system.name}}</option>
+          </select>
 
+        <!-- <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div> -->
+    </div>
+    <div class="input-group">
+      <input [disabled]="disableGame" [(ngModel)]="listing.game.name" name="game-name" type="text" class="form-control" placeholder="Search for the game you are trading">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="gameSearch()">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+      <div class="form-group" >
+        <ul>
+          <label for="game-name-select">Select your game:</label>
+          <!-- <select name="game-name-select" [(ngModel)]="listing.game.name">
+                <option *ngFor="let game of games" [value]="game.Title" >{{game.GameTitle}}</option>
+            </select> -->
+            <li *ngFor="let game of games">
+  <input name="radiogroup" type="radio" [value]="game.Title" />
+  <label>{{game.GameTitle}}</label>
+</li>
+</ul>
           <!-- <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div> -->
       </div>
+
       <div class="form-group" >
           <label for="wanted-name">Wanted Game</label>
           <input type="text" class="form-control" name="wanted-name" [(ngModel)]="listing.wanted.name" />
