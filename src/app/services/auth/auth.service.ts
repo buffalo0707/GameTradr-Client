@@ -9,7 +9,6 @@ export class AuthService {
   constructor(private http: Http) { }
 
   login(body: any): Observable<Response> {
-      console.log('logging in')
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
       const updateUrl = `${this.apiUrl}/sign-in`;
@@ -18,7 +17,7 @@ export class AuthService {
     }
 
   logout(user) {
-    const deleteUrl = `${this.apiUrl}/sign-out/${user._id}`;
+    const deleteUrl = `${this.apiUrl}/sign-out/${user.id}`;
     let headers = new Headers();
     headers.append('Authorization', `Token token=${user.token}`);
     return this.http.delete(deleteUrl, {headers})
@@ -26,11 +25,21 @@ export class AuthService {
   }
 
   register(user) {
-    console.log('logging in')
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const registerUrl = `${this.apiUrl}/sign-up`;
     return this.http.post(registerUrl, JSON.stringify(user), { headers })
+    .map((res:Response) => res.json());
+  }
+
+  changePassword(password) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let currentUser = JSON.parse(localStorage.getItem('currentUser')).user
+    console.log('current user is', currentUser)
+    headers.append('Authorization', `Token token=${currentUser.token}`)
+    const passwordURL = `${this.apiUrl}/change-password/${currentUser.id}`;
+    return this.http.patch(passwordURL, JSON.stringify(password), { headers })
     .map((res:Response) => res.json());
   }
 }

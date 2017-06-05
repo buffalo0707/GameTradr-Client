@@ -10,14 +10,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
-import { AuthService } from './services/auth/auth.service'
+import { AuthService } from './services/auth/auth.service';
+import { PasswordComponent } from './password/password.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
