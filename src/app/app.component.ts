@@ -17,6 +17,7 @@ export class AppComponent {
     this.authService.logout(currentUser.user)
     .subscribe(
       data => {
+        localStorage.clear()
         this.router.navigate(['home']);
       },
       error => {
