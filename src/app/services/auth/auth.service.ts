@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { environment } from '../../../environments/environment'
 
 @Injectable()
 export class AuthService {
-  private apiUrl = 'http://localhost:4741';
+  private apiUrl = environment.apiUrl;
   constructor(private http: Http) { }
 
   login(body: any): Observable<Response> {

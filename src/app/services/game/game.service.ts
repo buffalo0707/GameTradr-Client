@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { environment } from '../../../environments/environment'
 
 @Injectable()
 export class GameService {
-  private systemURL = 'http://localhost:4741/platforms';
-  private gameURL = 'http://localhost:4741/games';
+  private systemURL = `${environment.apiUrl}/platforms`;
+  private gameURL = `${environment.apiUrl}/games`;
   constructor(private http: Http) { }
 
   getSystems(): Observable<Response> {
