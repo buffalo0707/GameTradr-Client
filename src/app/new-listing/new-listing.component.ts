@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../services/listing/listing.service'
+import { GameService } from '../services/game/game.service'
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,13 +13,19 @@ export class NewListingComponent implements OnInit {
     game:  {},
     wanted: {}
   }
+  systems: any = []
   loading: false
   constructor(
     private listingService: ListingService,
+    private gameService: GameService,
     private router: Router) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.gameService.onSystemsRetrieved((data: any) =>{
+        this.systems = data.Data.Platforms.Platform
+        console.log(this.systems)
+      })
+    }
 
   onCreate() {
     this.listingService.create(this.listing)

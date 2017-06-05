@@ -18,7 +18,6 @@ import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component';
 import { NewListingComponent } from './new-listing/new-listing.component';
 import { EditListingComponent } from './edit-listing/edit-listing.component';
-import { SystemListComponent } from './system-list/system-list.component'
 
 @NgModule({
   declarations: [
@@ -29,8 +28,7 @@ import { SystemListComponent } from './system-list/system-list.component'
     PasswordComponent,
     ListingsComponent,
     NewListingComponent,
-    EditListingComponent,
-    SystemListComponent
+    EditListingComponent
   ],
   imports: [
     BrowserModule,
