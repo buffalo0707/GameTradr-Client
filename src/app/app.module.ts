@@ -13,7 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './services/auth/auth.service';
 import { ListingService } from './services/listing/listing.service';
 import { PasswordComponent } from './password/password.component';
-import { ListingsComponent } from './listings/listings.component'
+import { ListingsComponent } from './listings/listings.component';
+import { NewListingComponent } from './new-listing/new-listing.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListingsComponent } from './listings/listings.component'
     LoginComponent,
     RegisterComponent,
     PasswordComponent,
-    ListingsComponent
+    ListingsComponent,
+    NewListingComponent
   ],
   imports: [
     BrowserModule,
