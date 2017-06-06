@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service'
 import { Router, ActivatedRoute } from '@angular/router';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-register',
@@ -12,10 +13,15 @@ export class RegisterComponent implements OnInit {
   loading = false;
   constructor(
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private _location: Location) { }
 
   ngOnInit() {
     this.user = {}
+  }
+
+  onCancel() {
+    this._location.back();
   }
 
   onRegister() {

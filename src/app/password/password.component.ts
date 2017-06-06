@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service'
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-password',
@@ -9,11 +10,15 @@ import { AuthService } from '../services/auth/auth.service'
 export class PasswordComponent implements OnInit {
   passwords: any = {}
   loading = false;
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private _location: Location) { }
 
   ngOnInit() {
   }
-
+  onCancel() {
+    this._location.back();
+  }
   changePassword() {
     console.log('in comp')
     this.authService.changePassword(this.passwords)
