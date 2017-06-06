@@ -12,6 +12,10 @@ export class AppComponent {
     private authService: AuthService,
     private router: Router) { }
 
+  loggedIn() {
+    return localStorage.getItem('currentUser') !== null
+  }
+
   onLogout() {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'))
     this.authService.logout(currentUser.user)
