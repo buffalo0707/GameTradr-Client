@@ -20,9 +20,9 @@
 
     <div class="panel panel-default col-xs-6">
       <div class="panel-heading">Wanted</div>
-      <div class="panel-body">
-        Game: {{listing.wanted.name}} <br>
-        System: {{listing.wanted.system}}
+      <div class="panel-body" *ngFor="let game of listing.wanted">
+        Game: {{game.name}} <br>
+        System: {{game.system}}
       </div>
     </div>
   </div>
