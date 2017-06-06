@@ -1,16 +1,28 @@
 
+<div class="container" *ngIf="loggedIn()">
+  <div class="row row-centered">
+  <div class="col-lg-6 col-centered text-center">
+    <h3 class="text-center"> Have a game to trade?</h3>
+    <button class="btn btn-primary align-center" routerLink="/new-listing" >Add New Listing</button>
+  </div>
+  <div class="col-lg-6 col-centered">
+    <h3> View/Delete Your listings</h3>
+    <button class="btn btn-primary" routerLink="/new-listing" >Click here</button>
+  </div>
+</div>
+</div>
 
-<div *ngIf="loggedIn()">
+<div>
   <div>
-    <h3> Have a game to trade?</h3>
-    <button class="btn btn-primary" routerLink="/new-listing" >Add New Listing</button>
+    <h2>Trade Listings</h2>
   </div>
 <br>
 </div>
+
 <div *ngFor="let listing of listings">
   <div class="container">
     <div class="row text-center">
-    <div class="panel panel-default col-xs-6">
+    <div class="panel panel-default col-sm-4 col-md-4 col-lg-6 col-centered">
       <div class="panel-heading">Trading</div>
       <div class="panel-body">
         Game: {{listing.game.name}} <br>
@@ -18,14 +30,18 @@
       </div>
     </div>
 
-    <div class="panel panel-default col-xs-6">
+    <div class="panel panel-default col-sm-4 col-md-4 col-lg-6 col-centered">
       <div class="panel-heading">Wanted</div>
       <div class="panel-body" *ngFor="let game of listing.wanted">
         Game: {{game.name}} <br>
         System: {{game.system}}
       </div>
     </div>
-    <button style="margin-top:-20px" class="btn btn-danger"(click)="onDelete(listing)">Delete</button>
+    <div class="row row-centered">
+    <div class="col-md-5 col-lg-6 col-centered">
+      <button style="margin-top:-10px" class="btn btn-danger"(click)="onDelete(listing)">Delete</button>
+    </div>
+  </div>
   </div>
 
   <br>
