@@ -37,13 +37,7 @@ Game Trading Platform
     * [ ] As a user, I want to be able to rate other users after completing a game exchange
     * [ ] As a user, I want to be able to see other users’ ratings
 
-##Data Schema
-* Users (has many listings and trades
-    * email
-    * password
-* Listing (belong to one user)
-    * TradeGame: Name, System
-    * WantedGame: Name, System
-* Trades (belong to many users)
-    * Users
-    * Games
+## Wireframe
+
+Rough draft of wireframe:
+https://goo.gl/photos/mebK75VDvfWHM6Ax6
