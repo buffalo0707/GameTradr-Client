@@ -18,6 +18,7 @@ export class GamePickerComponent implements OnInit {
   games: any = []
   visible = true
   deleted = false
+  loading = false
   constructor(
     private listingService: ListingService,
     private gameService: GameService,
@@ -31,12 +32,14 @@ export class GamePickerComponent implements OnInit {
     this.disableGame = false
   }
   gameSearch(){
+    this.loading = true
     let query = {}
     query['system']= this.game.system
     query['name']=this.searchName
     console.log('query is', query)
     this.gameService.onGamesRetrieved(query, (data: any) =>{
       this.games = data.Data.Game
+      this.loading = false
     })
   }
   onGameSelectionChange(game){
