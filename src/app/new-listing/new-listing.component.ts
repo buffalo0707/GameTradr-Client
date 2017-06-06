@@ -115,4 +115,8 @@ export class NewListingComponent implements OnInit {
     console.log('wantedgames', this.wantedGames)
   }
 
+  onCancel(){
+    this.router.navigate(['listings']);
+  }
+
 }
