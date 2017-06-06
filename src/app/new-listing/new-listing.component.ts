@@ -15,7 +15,6 @@ export class NewListingComponent implements OnInit {
   }
   searchName: any
   searchWantedName: any
-  systems: any = []
   games: any = []
   wantedGames: any = []
   loading = true
@@ -30,11 +29,6 @@ export class NewListingComponent implements OnInit {
     private router: Router) { }
 
     ngOnInit() {
-      this.gameService.onSystemsRetrieved((data: any) =>{
-        this.systems = data.Data.Platforms.Platform
-        console.log(this.systems)
-        this.loading = false
-      })
     }
 
   onCreate() {
