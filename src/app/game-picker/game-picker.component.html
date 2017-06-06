@@ -12,11 +12,11 @@
   /></button>
   </span>
 </div>
-
-<div  class="radio text-left" *ngFor="let game of games">
-  <label>
-    <input type="radio" name="gameOptionsRadios" [value]="game.GameTitle" (change)="onGameSelectionChange(game)">
-    {{game.GameTitle}}
-  </label>
-</div>
+<table class="table table-bordered table-striped table-hover">
+    <tbody>
+       <tr *ngFor="let game of games" (click)="onGameSelectionChange(game)">
+           <td>{{game.GameTitle}}</td>
+       </tr>
+    </tbody>
+</table>
 </div>

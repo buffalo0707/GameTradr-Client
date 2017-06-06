@@ -30,6 +30,7 @@ export class GamePickerComponent implements OnInit {
 
   enableGame(){
     this.disableGame = false
+    this.games = []
   }
   gameSearch(){
     this.loading = true
