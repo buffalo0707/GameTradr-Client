@@ -1,7 +1,13 @@
 
-<button routerLink="/new-listing" *ngIf="loggedIn()">New Listing</button>
 
-<div class="well" *ngFor="let listing of listings">
+<div *ngIf="loggedIn()">
+  <div>
+    <h3> Have a game to trade?</h3>
+    <button class="btn btn-primary" routerLink="/new-listing" >Add New Listing</button>
+  </div>
+<br>
+</div>
+<div *ngFor="let listing of listings">
   <div class="container">
     <div class="row text-center">
     <div class="panel panel-default col-xs-6">
@@ -19,10 +25,10 @@
         System: {{game.system}}
       </div>
     </div>
-  </div>
-  <div class="row">
     <button class="btn btn-danger btn-xs"(click)="onDelete(listing)">Delete</button>
     <button class="btn btn-xs" (click)="onEdit(listing)">Edit</button>
   </div>
+
+  <br>
 </div>
 </div>
