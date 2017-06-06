@@ -14,7 +14,9 @@ export class GamePickerComponent implements OnInit {
   disableGame=true
   game: any={}
   searchName: string
-  systems = ["Microsoft Xbox 360", "Nintendo Switch", "Sony Playstation 4"]
+  systems = ["Nintendo 3DS", "Nintendo DS", "Nintendo Switch", "Microsoft Xbox 360",
+            "Microsoft Xbox One", "Sony Playstation 3", "Sony Playstation 4",
+            "Sony Playstation Vita"]
   games: any = []
   visible = true
   deleted = false
