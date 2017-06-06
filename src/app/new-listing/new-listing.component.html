@@ -2,52 +2,19 @@
   <div class="container">
     <div class="col-sm-8 col-sm-offset-2">
       <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up!</h2>
+        <h2>What game are you trading?</h2>
         <form name="form">
-          <div class="form-group">
-            <label for="game-system">System</label>
-            <select class="form-control" name="game-system" [(ngModel)]="listing.game.system" (change)="enableGame()">
-              <option *ngFor="let system of systems" [value]="system.name" >{{system.name}}</option>
-          </select>
-            <!-- <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div> -->
-          </div>
-          <div class="input-group">
-            <input [disabled]="disableGame" [(ngModel)]="searchName" name="game-name" type="text" class="form-control" placeholder="Search for the game you are trading">
-            <span class="input-group-btn">
-              <button [disabled]="disableGame" class="btn btn-default" type="button" (click)="gameSearch()">Go!</button>
-            </span>
-          </div>
-          <div class="radio text-left" *ngFor="let game of games">
-            <label>
-              <input type="radio" name="gameOptionsRadios" [value]="game.GameTitle" (change)="onGameSelectionChange(game)">
-              {{game.GameTitle}}
-            </label>
-          </div>
-          <div class="form-group">
-            <select class="form-control" name="wanted-system" [(ngModel)]="listing.wanted.system" (change)="enableWantedGame()">
-                <option *ngFor="let system of systems" [value]="system.name">{{system.name}}</option>
-            </select>
-          </div>
-            <div class="input-group">
-              <input [disabled]="disableWantedGame" [(ngModel)]="searchWantedName" name="wanted-game-name" type="text" class="form-control" placeholder="Search for the game you would want">
-              <span class="input-group-btn">
-                <button [disabled]="disableWantedGame" class="btn btn-default" type="button" (click)="wantedGameSearch()">Go!</button>
-              </span>
-            </div>
-            <div class="radio text-left" *ngFor="let game of wantedGames">
-              <label>
-                <input type="radio" name="optionsRadios" [value]="game.GameTitle" (change)="onWantedGameSelectionChange(game)">
-                {{game.GameTitle}}
-              </label>
-            </div>
-
-            <!-- <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div> -->
-
-
-          <div class="form-group">
+          <app-game-picker (onSelected)="onSelected($event)" [hidden]="gameSelected"></app-game-picker>
+          <app-game-picker *ngFor="let game of wantedGames" (onSelected)="onWantedSelected($event)" (onDeleted)="onDeleted($event)" ></app-game-picker>          <div class="form-group">
             <button class="btn btn-primary" [disabled]="loading" (click)="onCreate()">Create Listing</button>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
             />
           </div>
         </form>
+      </div>
+      <div class="col-md-6 col-md-offset-3" [hidden]="hideList">
+        <ul>
+          <li *ngFor="let game of wantedGames" [hidden]="game === {}">{{game.name}} for {{game.system}} <button (click)="onDeleted(game)">Delete</button></li>
+
+        </ul>
       </div>

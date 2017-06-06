@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class NewListingComponent implements OnInit {
   listing: any = {
     game:  {},
-    wanted: {}
+    wanted: []
   }
   searchName: any
   searchWantedName: any
@@ -21,6 +21,9 @@ export class NewListingComponent implements OnInit {
   loading = true
   disableGame = true
   disableWantedGame = true
+  gameSelected = false
+  hideButton = true
+  hideList = true
   constructor(
     private listingService: ListingService,
     private gameService: GameService,
@@ -35,6 +38,7 @@ export class NewListingComponent implements OnInit {
     }
 
   onCreate() {
+    this.listing.wanted = this.wantedGames
     this.listingService.create(this.listing)
       .subscribe(
         res => {
@@ -78,13 +82,35 @@ export class NewListingComponent implements OnInit {
     })
   }
 
-  onGameSelectionChange(game){
-    this.listing.game.name = game.GameTitle
-    console.log(game)
+  onSelected(game){
+    this.listing.game = game
+    this.gameSelected = true
+    console.log(this.listing)
+    this.wantedGames.push(1)
+  }
+  onWantedSelected(game){
+    if(this.wantedGames[0] === 1){
+      this.wantedGames.splice(0,1)
+    }
+    this.hideList = false
+    this.wantedGames.push(game)
+    this.hideButton = false
+    console.log(this.wantedGames)
+    }
+
+  addWantedgame(){
+    this.wantedGames.push()
+    this.hideButton = true
   }
 
   onWantedGameSelectionChange(game){
     this.listing.wanted.name = game.GameTitle
+  }
+
+  onDeleted(game){
+    console.log(game)
+    this.wantedGames.splice(this.wantedGames.indexOf(game),1)
+    console.log(this.wantedGames)
   }
 
 }

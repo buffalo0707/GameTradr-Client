@@ -1,0 +1,22 @@
+<div [hidden]="!visible">
+<div class="form-group">
+  <label for="system">System</label>
+  <select class="form-control" name="system" [(ngModel)]="game.system" (change)="enableGame()">
+    <option *ngFor="let system of systems" [value]="system" >{{system}}</option>
+</select>
+  <!-- <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div> -->
+</div>
+<div class="input-group">
+  <input [disabled]="disableGame" [(ngModel)]="searchName" name="game-name" type="text" class="form-control" placeholder="Search for the game you are trading">
+  <span class="input-group-btn">
+    <button [disabled]="disableGame" class="btn btn-default" type="button" (click)="gameSearch()">Go!</button>
+  </span>
+</div>
+
+<div  class="radio text-left" *ngFor="let game of games">
+  <label>
+    <input type="radio" name="gameOptionsRadios" [value]="game.GameTitle" (change)="onGameSelectionChange(game)">
+    {{game.GameTitle}}
+  </label>
+</div>
+</div>
