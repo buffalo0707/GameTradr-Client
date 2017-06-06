@@ -1,20 +1,39 @@
 <div class="jumbotron">
   <div class="container">
     <div class="col-sm-8 col-sm-offset-2">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3" >
         <h2>What game are you trading?</h2>
         <form name="form">
-          <app-game-picker (onSelected)="onSelected($event)" [hidden]="gameSelected"></app-game-picker>
-          <app-game-picker *ngFor="let game of wantedGames" (onSelected)="onWantedSelected($event)" (onDeleted)="onDeleted($event)" ></app-game-picker>          <div class="form-group">
+          <app-game-picker [hidden]="gameSelected" (onSelected)="onSelected($event)"></app-game-picker>
+          <div class="form-group">
+          </div>
+        </form>
+        <div class="row text-center" [hidden]="!gameSelected">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{listing.game.name}}</div>
+          <div class="panel-body">
+            {{listing.game.system}}
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-6 col-md-offset-3" [hidden]="!gameSelected">
+        <h2>What games do you want</h2>
+        <div class="row text-center" *ngFor="let game of wantedGames" [hidden]="hideList" [hidden]="game === 1">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{game.name}}</div>
+          <div class="panel-body">
+            {{game.system}}
+            <button class="btn btn-sm btn-danger" (click)="onDeleted(game)">Delete</button>
+          </div>
+        </div>
+      </div>
+        <form name="form">
+          <app-game-picker *ngFor="let game of wantedGames" (onSelected)="onWantedSelected($event)" (onDeleted)="onDeleted($event)" ></app-game-picker>
+          <div class="form-group">
             <button class="btn btn-primary" [disabled]="loading" (click)="onCreate()">Create Listing</button>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
             />
           </div>
         </form>
-      </div>
-      <div class="col-md-6 col-md-offset-3" [hidden]="hideList">
-        <ul>
-          <li *ngFor="let game of wantedGames" [hidden]="game === {}">{{game.name}} for {{game.system}} <button (click)="onDeleted(game)">Delete</button></li>
-
-        </ul>
       </div>

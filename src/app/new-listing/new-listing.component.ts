@@ -108,9 +108,11 @@ export class NewListingComponent implements OnInit {
   }
 
   onDeleted(game){
-    console.log(game)
     this.wantedGames.splice(this.wantedGames.indexOf(game),1)
-    console.log(this.wantedGames)
+    if(this.wantedGames.length === 0){
+      this.wantedGames.push(1)
+    }
+    console.log('wantedgames', this.wantedGames)
   }
 
 }
