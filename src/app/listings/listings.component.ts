@@ -32,4 +32,8 @@ export class ListingsComponent implements OnInit {
     onEdit(listing) {
       this.router.navigate(['edit-listing', listing.id]);
     }
+
+    loggedIn() {
+      return localStorage.getItem('currentUser') !== null
+    }
 }
