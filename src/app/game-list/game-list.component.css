@@ -1,0 +1,84 @@
+.bottom {
+    border-bottom: 1px solid #ccc;
+}
+.game-list {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+.overlay-trade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+
+.game-list:hover .overlay {
+  display: block;
+  background: rgba(0, 0, 0, .3);
+}
+.game-list:hover .overlay-trade {
+  display: block;
+  background: rgba(0, 0, 0, .3);
+}
+
+
+.button {
+  position: absolute;
+  width: 500px;
+  top:33.3%;
+  left:16.5%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.button-trade {
+  position: absolute;
+  width: 500px;
+  top:33.3%;
+  left:16.5%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.button button {
+  width: 200px;
+  padding: 12px 48px;
+  text-align: center;
+  color: white;
+  border: solid 2px white;
+  z-index: 1;
+  background-color: #F04124;
+}
+
+.button-trade button {
+  width: 200px;
+  padding: 12px 48px;
+  text-align: center;
+  color: white;
+  border: solid 2px white;
+  z-index: 1;
+  background-color: #43ac6a;
+}
+
+.game-list:hover .button {
+  opacity: 1;
+}
+
+.game-list:hover .button-trade {
+  opacity: 1;
+}

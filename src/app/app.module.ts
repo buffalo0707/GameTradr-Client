@@ -20,6 +20,7 @@ import { NewListingComponent } from './new-listing/new-listing.component';
 import { EditListingComponent } from './edit-listing/edit-listing.component';
 import { GamePickerComponent } from './game-picker/game-picker.component';
 import { ViewListingComponent } from './view-listing/view-listing.component';
+import { GameListComponent } from './game-list/game-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ViewListingComponent } from './view-listing/view-listing.component';
     NewListingComponent,
     EditListingComponent,
     GamePickerComponent,
-    ViewListingComponent
+    ViewListingComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule,
