@@ -11,12 +11,26 @@ export class ListingService {
   constructor(private http: Http) { }
 
   getListings(): Observable<Response> {
-    return this.http.get(this.apiUrl)
+    let headers = new Headers();
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    return this.http.get(this.apiUrl,{headers})
+    .map((res:Response) => res.json());
+  }
+
+  getMyListings(): Observable<Response> {
+    let ownerID = JSON.parse(localStorage.getItem('currentUser')).user.id
+    let headers = new Headers();
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    return this.http.get(`${this.apiUrl}/?owner=${ownerID}`,{headers})
     .map((res:Response) => res.json());
   }
 
   onListingsRetrieved(callback: any): void {
   this.getListings().subscribe(callback);
+  }
+
+  onMyListingsRetrieved(callback: any): void {
+  this.getMyListings().subscribe(callback);
   }
 
   getListing(id): Observable<Response> {

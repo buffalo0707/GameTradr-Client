@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListingsComponent implements OnInit {
   listings = []
+  myListings = false
   constructor(
     private listingService: ListingService,
     private router: Router) { }
@@ -25,5 +26,15 @@ export class ListingsComponent implements OnInit {
 
     loggedIn() {
       return localStorage.getItem('currentUser') !== null
+    }
+    showMyListings(){
+      this.listingService.onMyListingsRetrieved((data)=>{
+        this.listings = data.listings
+        this.myListings = true
+      })
+    }
+    showAllListings(){
+      this.ngOnInit()
+      this.myListings = false
     }
 }
