@@ -11,6 +11,7 @@ import {Location} from '@angular/common'
 export class NewOfferComponent implements OnInit {
   listing: any={}
   offeredGame: any={}
+  loading = false
   constructor(
       private listingService: ListingService,
       private offerService: OfferService,
@@ -26,7 +27,21 @@ export class NewOfferComponent implements OnInit {
   onCancel(){
     this.router.navigate(['listings'])
   }
-
+  onTrade(){
+    this.loading = true
+    this.offerService.createOffer()
+    .subscribe(
+      res => {
+        console.log(res)
+        this.loading = false
+        this.router.navigate(['listings']);
+      },
+      error => {
+        console.log(error)
+        this.loading = false
+      }
+    )
+  }
 
 
 }

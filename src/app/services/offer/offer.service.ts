@@ -6,8 +6,9 @@ import { environment } from '../../../environments/environment'
 
 @Injectable()
 export class OfferService {
-  listing={}
-  offeredGame={}
+  private apiUrl = `${environment.apiUrl}/offers`;
+  listing:any={}
+  offeredGame:any={}
   constructor(private http: Http) { }
 
   setListing(listing){
@@ -21,5 +22,16 @@ export class OfferService {
   }
   getOfferedGame(){
     return this.offeredGame
+  }
+  createOffer(){
+    const offer = {
+      game: this.listing.game,
+      offeredGame: this.offeredGame
+    }
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    return this.http.post(this.apiUrl, JSON.stringify(offer), { headers })
+    .map((res:Response) => res.json());
   }
 }
