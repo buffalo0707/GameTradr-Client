@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['listings']);
         },
         error => {
-          this.alertService.error(error)
+          this.alertService.error("Login failed. Please check your username and password.")
           this.loading = false
         }
       )

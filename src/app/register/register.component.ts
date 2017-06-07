@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
           this.loading = false
         },
         error => {
-          this.alertService.error(error)
+          this.alertService.error("Registration failed. Please be sure passwords match or try again with another email.")
           this.loading = false
         },
         () => {
