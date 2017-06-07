@@ -34,7 +34,7 @@ export class NewOfferComponent implements OnInit {
       res => {
         console.log(res)
         this.loading = false
-        this.router.navigate(['listings']);
+        this.router.navigate(['offers']);
       },
       error => {
         console.log(error)

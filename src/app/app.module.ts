@@ -23,6 +23,7 @@ import { GamePickerComponent } from './game-picker/game-picker.component';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { NewOfferComponent } from './new-offer/new-offer.component';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NewOfferComponent } from './new-offer/new-offer.component';
     GamePickerComponent,
     ViewListingComponent,
     GameListComponent,
-    NewOfferComponent
+    NewOfferComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,

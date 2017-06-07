@@ -62,13 +62,10 @@ export class ViewListingComponent implements OnInit {
     console.log('owner id is', this.listing._owner)
     return currentUser.id === this.listing._owner
   }
-  makeOffer(){
-    this.router.navigate(['offer'])
-  }
   onTradeSelected(game){
     this.offerService.setListing(this.listing)
     this.offerService.setOfferedGame(game)
-    this.router.navigate(['offer'])
+    this.router.navigate(['offers/new'])
   }
 
 }
