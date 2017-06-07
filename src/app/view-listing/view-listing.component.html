@@ -21,10 +21,11 @@
             <h3>{{game.name}}</h3>
             <h4>for</h4>
             <h3>{{game.system}}</h3>
-            <div class="overlay"></div>
-            <div class="button"><button class="btn btn-danger" (click)="deleteGame(game)">Delete</button></div>
+            <div class="overlay" *ngIf="userOwned()"></div>
+            <div class="button"><button *ngIf="userOwned()" class="btn btn-danger" (click)="deleteGame(game)">Delete</button></div>
           </div>
         </div>
       </div>
     </div>
 </div>
+  <p *ngIf="userOwned()">USER OWNED</p>
