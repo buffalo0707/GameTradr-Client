@@ -22,5 +22,15 @@ export class OffersComponent implements OnInit {
       console.log(this.offers)
     })
   }
+  cancelOffer(id){
+    this.offerService.deleteOffer(id)
+    .subscribe(
+      res => {
+        this.ngOnInit()
+      },
+      error => {
+        console.log(error)
+      })
+  }
 
 }

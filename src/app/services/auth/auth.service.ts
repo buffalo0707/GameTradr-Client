@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment'
 
 @Injectable()
 export class AuthService {
+  user: any={}
   private apiUrl = environment.apiUrl;
   constructor(private http: Http) { }
 

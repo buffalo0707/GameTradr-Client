@@ -25,6 +25,7 @@ export class OfferService {
   }
   createOffer(){
     const offer = {
+      _listing: this.listing.id,
       game: this.listing.game,
       offeredGame: this.offeredGame
     }
@@ -35,11 +36,20 @@ export class OfferService {
     .map((res:Response) => res.json());
   }
   getOffers(): Observable<Response> {
-    return this.http.get(this.apiUrl)
+    let headers = new Headers();
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    console.log(headers)
+    return this.http.get(this.apiUrl, {headers})
     .map((res:Response) => res.json());
   }
 
   onOffersRetrieved(callback: any): void {
   this.getOffers().subscribe(callback);
+  }
+  deleteOffer(id): Observable<Response> {
+    let headers = new Headers();
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers })
+    .map((res:Response) => res.json());
   }
 }
