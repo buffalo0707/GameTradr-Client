@@ -44,8 +44,17 @@ export class ViewListingComponent implements OnInit {
         console.log(error)
       })
   }
+  deleteListing(){
+    this.listingService.delete(this.listing._id)
+    .subscribe(
+      res => {
+        this.router.navigate(['listings'])
+      },
+      error => {
+        console.log(error)
+      })
+  }
   userOwned(){
-
     let currentUser = JSON.parse(localStorage.getItem('currentUser')).user
     console.log('user id is', currentUser.id)
     console.log('owner id is', this.listing._owner)

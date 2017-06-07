@@ -26,6 +26,8 @@
           </div>
         </div>
       </div>
+      <div>
+        <button *ngIf="userOwned()" (click)="deleteListing()" class="btn btn-danger">Delete Listing</button>
+      </div>
     </div>
 </div>
-  <p *ngIf="userOwned()">USER OWNED</p>

@@ -19,20 +19,6 @@ export class ListingsComponent implements OnInit {
       })
     }
 
-    onDelete(listing) {
-      this.listingService.delete(listing.id)
-      .subscribe(
-        res => {
-          this.ngOnInit()
-        },
-        error => {
-          console.log(error)
-        })
-    }
-    onEdit(listing) {
-      this.router.navigate(['edit-listing', listing.id]);
-    }
-
     getListing(listing) {
       this.router.navigate(['view-listing', listing.id]);
     }
