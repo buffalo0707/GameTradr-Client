@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service'
+import { AlertService } from '../services/alert/alert.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import {Location} from '@angular/common'
 
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
   loading = false;
   constructor(
     private authService: AuthService,
+    private alertService: AlertService,
     private router: Router,
     private _location: Location) { }
 
@@ -36,7 +38,7 @@ export class RegisterComponent implements OnInit {
           this.loading = false
         },
         error => {
-          console.log(error)
+          this.alertService.error(error)
           this.loading = false
         },
         () => {
@@ -50,7 +52,7 @@ export class RegisterComponent implements OnInit {
               this.router.navigate(['listings']);
             },
             error => {
-              console.log(error)
+              this.alertService.error(error)
               this.loading = false
             })}
       )
