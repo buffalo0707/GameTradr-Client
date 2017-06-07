@@ -16,6 +16,8 @@ import { GameService } from './services/game/game.service';
 import { OfferService } from './services/offer/offer.service';
 import { AlertService } from './services/alert/alert.service';
 
+import { AuthGuard } from './auth.guard';
+
 import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component';
 import { NewListingComponent } from './new-listing/new-listing.component';
@@ -50,7 +52,7 @@ import { AlertComponent } from './alert/alert.component';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService, ListingService, GameService, OfferService, AlertService],
+  providers: [AuthService, ListingService, GameService, OfferService, AlertService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

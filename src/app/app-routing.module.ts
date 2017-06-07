@@ -11,6 +11,7 @@ import { EditListingComponent } from './edit-listing/edit-listing.component';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { NewOfferComponent } from './new-offer/new-offer.component';
 import { OffersComponent } from './offers/offers.component';
+import { AuthGuard } from './auth.guard';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -19,13 +20,13 @@ const routes: Routes = [
    { path: 'home',  component: HomeComponent },
    { path: 'login',  component: LoginComponent },
    { path: 'register',  component: RegisterComponent },
-   { path: 'password',  component: PasswordComponent },
+   { path: 'password',  component: PasswordComponent, canActivate: [AuthGuard] },
    { path: 'listings',  component: ListingsComponent },
-   { path: 'new-listing',  component: NewListingComponent },
-   { path: 'edit-listing/:id',  component: EditListingComponent },
-   { path: 'view-listing/:id',  component: ViewListingComponent },
-   { path: 'offers/new',  component: NewOfferComponent },
-   { path: 'offers',  component: OffersComponent }
+   { path: 'new-listing',  component: NewListingComponent, canActivate: [AuthGuard] },
+   { path: 'edit-listing/:id',  component: EditListingComponent, canActivate: [AuthGuard] },
+   { path: 'view-listing/:id',  component: ViewListingComponent, canActivate: [AuthGuard]  },
+   { path: 'offers/new',  component: NewOfferComponent, canActivate: [AuthGuard] },
+   { path: 'offers',  component: OffersComponent, canActivate: [AuthGuard] }
 
 ]
 
