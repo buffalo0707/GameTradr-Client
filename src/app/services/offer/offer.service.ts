@@ -34,4 +34,12 @@ export class OfferService {
     return this.http.post(this.apiUrl, JSON.stringify(offer), { headers })
     .map((res:Response) => res.json());
   }
+  getOffers(): Observable<Response> {
+    return this.http.get(this.apiUrl)
+    .map((res:Response) => res.json());
+  }
+
+  onOffersRetrieved(callback: any): void {
+  this.getOffers().subscribe(callback);
+  }
 }

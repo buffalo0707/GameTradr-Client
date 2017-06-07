@@ -1,3 +1,24 @@
-<p>
-  offers works!
-</p>
+<div class="container" *ngFor="let offer of offers">
+  <div>Date: {{offer.createdAt | date:'shortDate'}}</div>
+  <div class=" col-xs-11 col-sm-10 col-md-10 col-lg-6 col-centered panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title"><h3>You Offered:</h3></h3>
+    </div>
+    <div class="panel-body">
+      <h3>{{offer.offeredGame.name}}</h3>
+      <h4>for</h4>
+      <h3>{{offer.offeredGame.system}}</h3>
+    </div>
+  </div>
+<div class=" col-xs-11 col-sm-10 col-md-10 col-lg-6 col-centered panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><h3>In Exchange For:</h3></h3>
+  </div>
+  <div class="panel-body">
+    <h3 class="text-nowrap">{{offer.game.name}}</h3>
+    <h4>for</h4>
+    <h3>{{offer.game.system}}</h3>
+  </div>
+</div>
+
+</div>
