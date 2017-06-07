@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ListingService } from '../services/listing/listing.service'
+import { OfferService } from '../services/offer/offer.service'
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import 'rxjs/add/operator/switchMap'
@@ -16,8 +17,10 @@ export class ViewListingComponent implements OnInit {
     wanted: [],
   }
   loading: false
+  offeredGame: any={}
   constructor(
     private listingService: ListingService,
+    private offerService: OfferService,
     private route: ActivatedRoute,
     private router: Router,
     private location: Location) { }
@@ -29,7 +32,10 @@ export class ViewListingComponent implements OnInit {
           this.listing = data.listing
           console.log(this.listing)
     })}
-
+    ngOnDestroy() {
+      this.offerService.listing = this.listing.game
+      this.offerService.offeredGame = this.offeredGame
+    }
   deleteGame(game){
     this.listing.wanted.splice(this.listing.wanted.indexOf(game),1)
     const listing: any = {
