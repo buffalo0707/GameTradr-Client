@@ -6,7 +6,7 @@
   <form name="registerForm" #registerForm="ngForm">
       <div class="form-group" >
           <label for="email">Email</label>
-          <input type="text" id="email" #email="ngModel" required class="form-control" name="email" [(ngModel)]="user.email" />
+          <input type="text" id="email" #email="ngModel" name="email" required class="form-control"  [(ngModel)]="user.email" />
           <div *ngIf="email.errors && (email.dirty || email.touched)"
                class="alert alert-danger">
               <div [hidden]="!email.errors.required">
@@ -19,7 +19,7 @@
           <input id="password" #password="ngModel" required type="password" class="form-control" name="password" [(ngModel)]="user.password"/>
           <div *ngIf="password.errors && (password.dirty || password.touched)"
                class="alert alert-danger">
-              <div [hidden]="!email.errors.required">
+              <div [hidden]="!password.errors.required">
                 password is required
               </div>
           </div>
@@ -29,7 +29,7 @@
           <input id="confirmpassword" #confirmpassword="ngModel" required type="password" class="form-control" name="confirmpassword" [(ngModel)]="user.password_confirm"/>
           <div *ngIf="confirmpassword.errors && (confirmpassword.dirty || confirmpassword.touched)"
                class="alert alert-danger">
-              <div [hidden]="!email.errors.required">
+              <div [hidden]="!confirmpassword.errors.required">
                 password confirmation is required
               </div>
           </div>
