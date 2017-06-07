@@ -9,6 +9,7 @@ export class GameListComponent implements OnInit {
   @Input() games: any
   @Input() owner: string
   @Output() onTradeSelected = new EventEmitter<any>()
+  @Output() onDeleteSelected = new EventEmitter<any>()
   constructor() { }
 
   ngOnInit() {
@@ -19,5 +20,8 @@ export class GameListComponent implements OnInit {
   }
   onTradeSelect(game){
     this.onTradeSelected.emit(game)
+  }
+  onDeleteSelect(game){
+    this.onDeleteSelected.emit(game)
   }
 }

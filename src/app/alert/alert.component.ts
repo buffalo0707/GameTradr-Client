@@ -10,8 +10,10 @@ import { AlertService } from '../services/alert/alert.service';
 
 export class AlertComponent {
     message: any;
-
-    constructor(private alertService: AlertService) { }
+public n: number = 1;
+    constructor(
+      private alertService: AlertService
+      ) { }
 
     ngOnInit() {
         this.alertService.getMessage().subscribe(message => { this.message = message; });

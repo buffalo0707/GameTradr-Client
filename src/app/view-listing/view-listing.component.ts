@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ListingService } from '../services/listing/listing.service'
+import { AlertService } from '../services/alert/alert.service'
 import { OfferService } from '../services/offer/offer.service'
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
@@ -22,6 +23,7 @@ export class ViewListingComponent implements OnInit {
     private listingService: ListingService,
     private offerService: OfferService,
     private route: ActivatedRoute,
+    private alertService: AlertService,
     private router: Router,
     private location: Location) { }
 
@@ -32,7 +34,12 @@ export class ViewListingComponent implements OnInit {
           this.listing = data.listing
           console.log(this.listing)
     })}
-  deleteGame(game){
+  onDeleteSelected(game){
+    if(this.listing.wanted.length === 1){
+      this.alertService.error("Sorry, every listing must have at least one Wanted Game!")
+
+      return
+    }
     this.listing.wanted.splice(this.listing.wanted.indexOf(game),1)
     const listing: any = {
       listing: this.listing

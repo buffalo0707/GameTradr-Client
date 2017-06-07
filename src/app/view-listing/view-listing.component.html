@@ -13,10 +13,11 @@
         </div>
       </div>
       <div class="row row-centered">
-        <app-game-list [games]="listing.wanted" [owner]="listing._owner" (onTradeSelected)="onTradeSelected($event)" ></app-game-list>
+        <app-game-list [games]="listing.wanted" [owner]="listing._owner" (onDeleteSelected)="onDeleteSelected($event)" (onTradeSelected)="onTradeSelected($event)" ></app-game-list>
       </div>
       <div>
         <button *ngIf="userOwned()" (click)="deleteListing()" class="btn btn-danger">Delete Listing</button>
+        <button routerLink="/listings" class="btn btn-primary">Back to Listings</button>
       </div>
     </div>
 </div>
