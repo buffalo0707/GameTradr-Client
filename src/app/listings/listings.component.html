@@ -21,7 +21,7 @@
 
 <div *ngFor="let listing of listings">
   <div class="container">
-    <div class="row text-center listing">
+    <div class="row text-center listing" (click)="getListing(listing)">
     <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered">
       <div class="panel-heading">Trading</div>
       <div class="panel-body">

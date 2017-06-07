@@ -33,6 +33,10 @@ export class ListingsComponent implements OnInit {
       this.router.navigate(['edit-listing', listing.id]);
     }
 
+    getListing(listing) {
+      this.router.navigate(['view-listing', listing.id]);
+    }
+
     loggedIn() {
       return localStorage.getItem('currentUser') !== null
     }

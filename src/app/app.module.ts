@@ -19,6 +19,7 @@ import { ListingsComponent } from './listings/listings.component';
 import { NewListingComponent } from './new-listing/new-listing.component';
 import { EditListingComponent } from './edit-listing/edit-listing.component';
 import { GamePickerComponent } from './game-picker/game-picker.component';
+import { ViewListingComponent } from './view-listing/view-listing.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GamePickerComponent } from './game-picker/game-picker.component';
     ListingsComponent,
     NewListingComponent,
     EditListingComponent,
-    GamePickerComponent
+    GamePickerComponent,
+    ViewListingComponent
   ],
   imports: [
     BrowserModule,
