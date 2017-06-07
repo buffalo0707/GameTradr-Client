@@ -14,6 +14,7 @@ import { AuthService } from './services/auth/auth.service';
 import { ListingService } from './services/listing/listing.service';
 import { GameService } from './services/game/game.service';
 import { OfferService } from './services/offer/offer.service';
+import { AlertService } from './services/alert/alert.service';
 
 import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component';
@@ -24,6 +25,7 @@ import { ViewListingComponent } from './view-listing/view-listing.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { NewOfferComponent } from './new-offer/new-offer.component';
 import { OffersComponent } from './offers/offers.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { OffersComponent } from './offers/offers.component';
     ViewListingComponent,
     GameListComponent,
     NewOfferComponent,
-    OffersComponent
+    OffersComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { OffersComponent } from './offers/offers.component';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService, ListingService, GameService, OfferService],
+  providers: [AuthService, ListingService, GameService, OfferService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
