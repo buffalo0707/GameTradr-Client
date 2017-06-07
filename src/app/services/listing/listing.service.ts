@@ -11,9 +11,7 @@ export class ListingService {
   constructor(private http: Http) { }
 
   getListings(): Observable<Response> {
-    let headers = new Headers();
-    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
-    return this.http.get(this.apiUrl,{headers})
+    return this.http.get(this.apiUrl)
     .map((res:Response) => res.json());
   }
 
