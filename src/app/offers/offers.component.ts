@@ -19,7 +19,6 @@ export class OffersComponent implements OnInit {
   ngOnInit() {
     this.offerService.onOffersRetrieved((data) =>{
       this.offers = data.offers
-      console.log(this.offers)
     })
   }
   cancelOffer(id){

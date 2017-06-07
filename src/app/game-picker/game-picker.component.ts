@@ -39,7 +39,6 @@ export class GamePickerComponent implements OnInit {
     let query = {}
     query['system']= this.game.system
     query['name']=this.searchName
-    console.log('query is', query)
     this.gameService.onGamesRetrieved(query, (data: any) =>{
       this.games = data.Data.Game
       this.loading = false
@@ -47,7 +46,6 @@ export class GamePickerComponent implements OnInit {
   }
   onGameSelectionChange(game){
     this.game.name = game.GameTitle
-    console.log(this.game)
     this.onSelected.emit(this.game)
     this.visible = false
   }

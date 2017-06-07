@@ -20,11 +20,9 @@ export class PasswordComponent implements OnInit {
     this._location.back();
   }
   changePassword() {
-    console.log('in comp')
     this.authService.changePassword(this.passwords)
     .subscribe(
       res => {
-        console.log(res)
         this.loading = false
       },
       error => {

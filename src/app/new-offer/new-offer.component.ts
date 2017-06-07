@@ -21,7 +21,6 @@ export class NewOfferComponent implements OnInit {
   ngOnInit() {
       this.listing = this.offerService.getListing()
       this.offeredGame = this.offerService.getOfferedGame()
-      console.log(this.listing)
   }
 
   onCancel(){
@@ -32,7 +31,6 @@ export class NewOfferComponent implements OnInit {
     this.offerService.createOffer()
     .subscribe(
       res => {
-        console.log(res)
         this.loading = false
         this.router.navigate(['offers']);
       },

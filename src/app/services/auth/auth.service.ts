@@ -38,7 +38,6 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let currentUser = JSON.parse(localStorage.getItem('currentUser')).user
-    console.log('current user is', currentUser)
     headers.append('Authorization', `Token token=${currentUser.token}`)
     const passwordURL = `${this.apiUrl}/change-password/${currentUser.id}`;
     return this.http.patch(passwordURL, JSON.stringify(password), { headers })

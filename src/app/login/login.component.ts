@@ -26,14 +26,11 @@ export class LoginComponent implements OnInit {
     this._location.back();
   }
   onLogin() {
-    console.log('login')
     this.loading = true;
     this.authService.login(this.user)
       .subscribe(
         data => {
-          console.log(data)
           localStorage.setItem('currentUser', JSON.stringify(data))
-          console.log('currentuser is', localStorage.getItem('currentUser'))
           this.loading = false
           this.router.navigate(['listings']);
         },

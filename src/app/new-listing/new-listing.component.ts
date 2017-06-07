@@ -36,7 +36,6 @@ export class NewListingComponent implements OnInit {
     this.listingService.create(this.listing)
       .subscribe(
         res => {
-          console.log(res)
           this.loading = false
           this.router.navigate(['listings']);
         },
@@ -59,7 +58,6 @@ export class NewListingComponent implements OnInit {
     let query = {}
     query['system']= this.listing.game.system
     query['name']=this.searchName
-    console.log('query is', query)
     this.gameService.onGamesRetrieved(query, (data: any) =>{
       this.games = data.Data.Game
     })
@@ -69,17 +67,14 @@ export class NewListingComponent implements OnInit {
     let query = {}
     query['system']= this.listing.wanted.system
     query['name']=this.searchWantedName
-    console.log('query is', query)
     this.gameService.onGamesRetrieved(query, (data: any) =>{
       this.wantedGames = data.Data.Game
-      console.log(data)
     })
   }
 
   onSelected(game){
     this.listing.game = game
     this.gameSelected = true
-    console.log(this.listing)
     this.wantedGames.push(1)
   }
   onWantedSelected(game){
@@ -89,7 +84,6 @@ export class NewListingComponent implements OnInit {
     this.hideList = false
     this.wantedGames.push(game)
     this.hideButton = false
-    console.log(this.wantedGames)
     }
 
   addWantedgame(){
@@ -106,7 +100,6 @@ export class NewListingComponent implements OnInit {
     if(this.wantedGames.length === 0){
       this.wantedGames.push(1)
     }
-    console.log('wantedgames', this.wantedGames)
   }
 
   onCancel(){

@@ -34,7 +34,6 @@ export class ListingService {
   }
 
   getListing(id): Observable<Response> {
-    console.log('id', id)
     return this.http.get(`${this.apiUrl}/${id}`)
     .map((res:Response) => res.json());
   }

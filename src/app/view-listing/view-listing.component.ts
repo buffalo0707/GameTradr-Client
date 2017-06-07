@@ -32,7 +32,6 @@ export class ViewListingComponent implements OnInit {
         .switchMap((params: Params) => this.listingService.getListing(params['id']))
         .subscribe((data: any) => {
           this.listing = data.listing
-          console.log(this.listing)
     })}
   onDeleteSelected(game){
     if(this.listing.wanted.length === 1){
@@ -46,9 +45,6 @@ export class ViewListingComponent implements OnInit {
     }
     this.listingService.editListing(listing)
     .subscribe(
-      res => {
-        console.log(res)
-      },
       error => {
         console.log(error)
       })
@@ -65,8 +61,6 @@ export class ViewListingComponent implements OnInit {
   }
   userOwned(){
     let currentUser = JSON.parse(localStorage.getItem('currentUser')).user
-    console.log('user id is', currentUser.id)
-    console.log('owner id is', this.listing._owner)
     return currentUser.id === this.listing._owner
   }
   onTradeSelected(game){

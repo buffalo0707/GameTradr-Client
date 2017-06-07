@@ -27,14 +27,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    console.log('register')
     this.loading = true;
     this.authService.register(this.user)
       .subscribe(
         data => {
-          console.log(data)
           localStorage.setItem('currentUser', JSON.stringify(data.user))
-          console.log('currentuser is', localStorage.getItem('currentUser'))
           this.loading = false
         },
         error => {
@@ -45,9 +42,7 @@ export class RegisterComponent implements OnInit {
           this.authService.login(this.user)
           .subscribe(
             data => {
-              console.log(data)
               localStorage.setItem('currentUser', JSON.stringify(data))
-              console.log('currentuser is', localStorage.getItem('currentUser'))
               this.loading = false
               this.router.navigate(['listings']);
             },
