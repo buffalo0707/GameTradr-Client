@@ -9,6 +9,8 @@ import { ListingsComponent } from './listings/listings.component';
 import { NewListingComponent } from './new-listing/new-listing.component';
 import { EditListingComponent } from './edit-listing/edit-listing.component';
 import { ViewListingComponent } from './view-listing/view-listing.component';
+import { NewOfferComponent } from './new-offer/new-offer.component';
+
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -20,7 +22,8 @@ const routes: Routes = [
    { path: 'listings',  component: ListingsComponent },
    { path: 'new-listing',  component: NewListingComponent },
    { path: 'edit-listing/:id',  component: EditListingComponent },
-   { path: 'view-listing/:id',  component: ViewListingComponent }
+   { path: 'view-listing/:id',  component: ViewListingComponent },
+   { path: 'offer',  component: NewOfferComponent }
 
 ]
 

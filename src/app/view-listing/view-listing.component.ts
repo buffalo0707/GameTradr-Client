@@ -32,10 +32,6 @@ export class ViewListingComponent implements OnInit {
           this.listing = data.listing
           console.log(this.listing)
     })}
-    ngOnDestroy() {
-      this.offerService.listing = this.listing.game
-      this.offerService.offeredGame = this.offeredGame
-    }
   deleteGame(game){
     this.listing.wanted.splice(this.listing.wanted.indexOf(game),1)
     const listing: any = {
@@ -65,6 +61,14 @@ export class ViewListingComponent implements OnInit {
     console.log('user id is', currentUser.id)
     console.log('owner id is', this.listing._owner)
     return currentUser.id === this.listing._owner
+  }
+  makeOffer(){
+    this.router.navigate(['offer'])
+  }
+  onTradeSelected(game){
+    this.offerService.setListing(this.listing)
+    this.offerService.setOfferedGame(game)
+    this.router.navigate(['offer'])
   }
 
 }

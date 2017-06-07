@@ -9,7 +9,7 @@
     <div class="overlay" *ngIf="userOwned()"></div>
     <div class="button"><button *ngIf="userOwned()" class="btn btn-danger" (click)="deleteGame(game)">Delete</button></div>
     <div class="overlay-trade" *ngIf="!userOwned()"></div>
-    <div class="button-trade"><button *ngIf="!userOwned()" class="btn btn-danger">Trade</button></div>
+    <div class="button-trade"><button *ngIf="!userOwned()" class="btn btn-danger" (click)="onTradeSelect(game)">Trade</button></div>
 
   </div>
 </div>

@@ -6,8 +6,20 @@ import { environment } from '../../../environments/environment'
 
 @Injectable()
 export class OfferService {
-  listing :any={}
-  offeredGame :any={}
+  listing={}
+  offeredGame={}
   constructor(private http: Http) { }
 
+  setListing(listing){
+    this.listing = listing
+  }
+  setOfferedGame(game){
+    this.offeredGame = game
+  }
+  getListing(){
+    return this.listing
+  }
+  getOfferedGame(){
+    return this.offeredGame
+  }
 }
