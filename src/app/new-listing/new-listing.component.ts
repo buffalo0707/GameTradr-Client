@@ -17,7 +17,7 @@ export class NewListingComponent implements OnInit {
   searchWantedName: any
   games: any = []
   wantedGames: any = []
-  loading = true
+  loading = false
   disableGame = true
   disableWantedGame = true
   gameSelected = false
