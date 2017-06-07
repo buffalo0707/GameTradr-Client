@@ -17,12 +17,18 @@
           <div class="panel-heading">
             <h3 class="panel-title"><strong>Wanted Games</strong></h3>
           </div>
+          <div>
+            <h3 *ngIf="!userOwned()" class="text-primary bottom">Select the game you want to trade for the game above</h3>
+          </div>
           <div class="panel-body bottom game game-list" *ngFor="let game of listing.wanted">
             <h3>{{game.name}}</h3>
             <h4>for</h4>
             <h3>{{game.system}}</h3>
             <div class="overlay" *ngIf="userOwned()"></div>
             <div class="button"><button *ngIf="userOwned()" class="btn btn-danger" (click)="deleteGame(game)">Delete</button></div>
+            <div class="overlay-trade" *ngIf="!userOwned()"></div>
+            <div class="button-trade"><button *ngIf="!userOwned()" class="btn btn-danger">Trade</button></div>
+
           </div>
         </div>
       </div>
