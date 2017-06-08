@@ -47,4 +47,12 @@ export class ListingsComponent implements OnInit {
       this.ngOnInit()
       this.myListings = false
     }
+    hasOffers(listing){
+      const result = this.listingOffers.some((offer, index, array)=>{
+        console.log('offer listing id is,',offer._listing)
+        console.log('listing id is ,',listing.id)
+        return offer._listing === listing.id;
+      })
+      return result
+    }
 }

@@ -25,6 +25,9 @@
 
 <div *ngFor="let listing of listings">
   <div class="container">
+    <div class="row row-centered alert alert-success offer-alert"  *ngIf="hasOffers(listing)">
+      <span>There is an offer on this listing!</span>
+  </div>
     <div class="row row-centered text-center listing is-flex" (click)="getListing(listing)">
     <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
       <div class="panel-heading">Trading</div>
@@ -41,8 +44,7 @@
         System: {{game.system}}
       </div>
     </div>
-    <div class="row row-centered">
-  </div>
+
   </div>
 
   <br>
