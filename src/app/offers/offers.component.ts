@@ -17,7 +17,7 @@ export class OffersComponent implements OnInit {
       private _location: Location) { }
 
   ngOnInit() {
-    this.offerService.onOffersRetrieved((data) =>{
+    this.offerService.onMyOffersRetrieved((data) =>{
       this.offers = data.offers
     })
   }

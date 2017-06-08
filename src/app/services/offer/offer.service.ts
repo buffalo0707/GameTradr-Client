@@ -46,6 +46,16 @@ export class OfferService {
   onOffersRetrieved(callback: any): void {
   this.getOffers().subscribe(callback);
   }
+  getMyOffers(): Observable<Response> {
+    let ownerID = JSON.parse(localStorage.getItem('currentUser')).user.id
+    let headers = new Headers();
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    return this.http.get(`${this.apiUrl}/?owner=${ownerID}`,{headers})
+    .map((res:Response) => res.json());
+  }
+  onMyOffersRetrieved(callback: any): void {
+  this.getMyOffers().subscribe(callback);
+  }
   deleteOffer(id): Observable<Response> {
     let headers = new Headers();
     headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
