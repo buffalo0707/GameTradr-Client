@@ -55,7 +55,7 @@ export class ListingService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
-    return this.http.patch(`${this.apiUrl}/${listing.listing.id}`, JSON.stringify(listing), { headers })
+    return this.http.patch(`${this.apiUrl}/${listing.id}`, JSON.stringify(listing), { headers })
     .map((res:Response) => res.json());
   }
 

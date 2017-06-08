@@ -46,10 +46,7 @@ export class ViewListingComponent implements OnInit {
       return
     }
     this.listing.wanted.splice(this.listing.wanted.indexOf(game),1)
-    const listing: any = {
-      listing: this.listing
-    }
-    this.listingService.editListing(listing)
+    this.listingService.editListing(this.listing)
     .subscribe(
       error => {
         console.log(error)
@@ -81,6 +78,25 @@ export class ViewListingComponent implements OnInit {
       res => {
         let index = this.offers.indexOf(offer)
         this.offers.splice(index,1)
+      },
+      error => {
+        console.log(error)
+      })
+  }
+  acceptOffer(offer){
+    offer.status = "accepted"
+    this.offerService.updateOffer(offer)
+    .subscribe(
+      res => {
+        //todo: delete all other offers
+        this.listing.status = "completed"
+        console.log(this.listing)
+        this.listingService.editListing(this.listing)
+          .subscribe(
+            error => {
+              console.log(error)
+            }
+          )
       },
       error => {
         console.log(error)

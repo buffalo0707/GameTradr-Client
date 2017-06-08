@@ -15,7 +15,7 @@
             <h3>{{offer.offeredGame.name}}</h3>
             <h4>for</h4>
             <h3>{{offer.offeredGame.system}}</h3>
-            <button class="btn btn-success">Accept</button>
+            <button class="btn btn-success" (click)="acceptOffer(offer)">Accept</button>
             <button class="btn btn-danger" (click)="declineOffer(offer)">Decline</button>
           </div>
         </div>
