@@ -18,14 +18,14 @@
 
 <div>
   <div>
-    <h2><span *ngIf="!myListings">All </span><span *ngIf="myListings">Your </span>Trade Listings</h2>
+    <h2><span *ngIf="!myListings">All Available</span><span *ngIf="myListings">Your Active</span> Listings</h2>
   </div>
 <br>
 </div>
 
 <div *ngFor="let listing of listings">
   <div class="container">
-    <div class="row text-center listing is-flex" (click)="getListing(listing)">
+    <div class="row row-centered text-center listing is-flex" (click)="getListing(listing)">
     <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
       <div class="panel-heading">Trading</div>
       <div class="panel-body">

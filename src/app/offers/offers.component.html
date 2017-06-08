@@ -3,26 +3,20 @@
 </div>
 <div class="container offer" *ngFor="let offer of offers">
   <div>Date: {{offer.createdAt | date:'shortDate'}}</div>
-  <div class=" col-xs-11 col-sm-10 col-md-10 col-lg-6 col-centered panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title"><h3>You Offered:</h3></h3>
-    </div>
+  <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
+    <div class="panel-heading">You Offered:</div>
     <div class="panel-body">
-      <h3>{{offer.offeredGame.name}}</h3>
-      <h4>for</h4>
-      <h3>{{offer.offeredGame.system}}</h3>
+      Game: {{offer.offeredGame.name}}<br>
+      System: {{offer.offeredGame.system}}
     </div>
   </div>
-<div class=" col-xs-11 col-sm-10 col-md-10 col-lg-6 col-centered panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title"><h3>In Exchange For:</h3></h3>
-  </div>
+  <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
+  <div class="panel-heading">In Exchange For:</div>
   <div class="panel-body">
-    <h3 class="text-nowrap">{{offer.game.name}}</h3>
-    <h4>for</h4>
-    <h3>{{offer.game.system}}</h3>
+    Game: {{offer.game.name}}<br>
+    System: {{offer.game.system}}
   </div>
 </div>
-<div class="overlay"></div>
-<div class="button"><button class="btn btn-danger" (click)="cancelOffer(offer.id)">Cancel</button></div>
+<div class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
+<div class="button col-sm-4 col-md-4 col-lg-6 col-centered"><button class="btn btn-danger" (click)="cancelOffer(offer.id)">Cancel</button></div>
 </div>
