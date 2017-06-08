@@ -51,10 +51,9 @@
   width: 200px;
   padding: 12px 48px;
   text-align: center;
-  color: white;
-  border: solid 2px white;
+
   z-index: 1;
-  background-color: #F04124;
+
 }
 
 .button-trade button {

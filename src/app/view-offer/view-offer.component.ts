@@ -36,5 +36,8 @@ export class ViewOfferComponent implements OnInit {
         })
       })
     }
+    goBack(){
+      this.router.navigate(['offers'])
+    }
 
 }

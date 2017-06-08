@@ -27,9 +27,7 @@
     System: {{offer.game.system}}
   </div>
 </div>
-<div *ngIf="offer.status == 'accepted'" class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
-<div *ngIf="offer.status == 'accepted'" class="button col-sm-4 col-md-4 col-lg-6 col-centered"><button class="btn btn-danger" (click)="viewOffer(offer.id)">Details</button></div>
-<div *ngIf="offer.status == 'new'" class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
-<div *ngIf="offer.status == 'new'" class="button col-sm-4 col-md-4 col-lg-6 col-centered"><button class="btn btn-danger" (click)="cancelOffer(offer.id)">Cancel</button></div>
+<div *ngIf="offer.status == 'accepted' || offer.status == 'new'" class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
+<div *ngIf="offer.status == 'accepted' || offer.status == 'new'" class="button col-sm-4 col-md-4 col-lg-6 col-centered"><button class="btn btn-primary" (click)="viewOffer(offer.id)">Details</button></div>
 <div><br></div>
 </div>
