@@ -18,7 +18,7 @@
 
 <div>
   <div>
-    <h2><span *ngIf="!myListings">All Available</span><span *ngIf="myListings">Your Active</span> Listings</h2>
+    <h2><span *ngIf="!myListings">All Available</span><span *ngIf="myListings">Your </span> Listings</h2>
   </div>
 <br>
 </div>
@@ -28,6 +28,9 @@
     <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="hasOffers(listing)">
       <span>There is an offer on this listing!</span>
   </div>
+  <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="listing.status =='completed'">
+    <span>Listing is complete</span>
+</div>
     <div class="row row-centered text-center listing is-flex" (click)="getListing(listing)">
     <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
       <div class="panel-heading">Trading</div>
