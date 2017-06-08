@@ -1,21 +1,21 @@
 # GameTradr-Client
 
--A site where users can post public listings for games they want to trade.
--Users indicate what game they are looking to trade and what they will accept in
+*A site where users can post public listings for games they want to trade.
+*Users indicate what game they are looking to trade and what they will accept in
 return.
--Users can make offers based on existing listings, and the owner of the listing
+*Users can make offers based on existing listings, and the owner of the listing
 can choose to accept or decline their offer
-  -Accepting an offer will cause all other offers on the same listing to be declined.
--Users can check on the status of their offers at any time by going to the offers
+  *Accepting an offer will cause all other offers on the same listing to be declined.
+*Users can check on the status of their offers at any time by going to the offers
 section of the site.
--Users can delete pending listings and offers. They cannot delete listings or
+*Users can delete pending listings and offers. They cannot delete listings or
 offers that have been completed.
 
 The site uses the following services to interact with the API:
--Listing service
--Auth service
--Offer service
--Game service
+*Listing service
+*Auth service
+*Offer service
+*Game service
 
 In addition, the site uses an Auth guard to prevent users from accessing portions
 of the site that require authentication.
