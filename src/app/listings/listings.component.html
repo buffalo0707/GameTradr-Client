@@ -22,7 +22,9 @@
   </div>
 <br>
 </div>
-
+<div *ngIf="listings.length === 0" [hidden]="!myListings">
+  <h3>You have no listings :(</h3>
+</div>
 <div *ngFor="let listing of listings">
   <div class="container">
     <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="hasOffers(listing)">

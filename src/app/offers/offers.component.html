@@ -4,15 +4,15 @@
 <div class="container offer" *ngFor="let offer of offers">
   <div></div>
   <div *ngIf="offer.status == 'new'" class="alert alert-info alert-nobottom-margin">
-    <p>Date Created: {{offer.createdAt | date:'shortDate'}}</p>
-    <p>Status: Pending</p></div>
+    <h4 class="offer-header">Date Created: {{offer.createdAt | date:'shortDate'}}</h4>
+    <h4 class="offer-header">Status: Pending</h4></div>
   <div *ngIf="offer.status == 'declined'" class="alert alert-danger alert-nobottom-margin">
-    <p>Date Created: {{offer.createdAt | date:'shortDate'}}</p>
-    <p>Status: Declined</p>
+    <h4 class="offer-header">Date Created: {{offer.createdAt | date:'shortDate'}}</h4>
+    <h4 class="offer-header">Status: Declined</h4>
   </div>
   <div *ngIf="offer.status == 'accepted'" class="alert alert-success alert-nobottom-margin">
-    <p>Date Created: {{offer.createdAt | date:'shortDate'}}</p>
-    <p>Status: Accepted</p></div>
+    <h4 class="offer-header">Date Created: {{offer.createdAt | date:'shortDate'}}</h4>
+    <h4 class="offer-header">Status: Accepted</h4></div>
   <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
     <div class="panel-heading">You Offered:</div>
     <div class="panel-body">
@@ -29,4 +29,5 @@
 </div>
 <div *ngIf="offer.status == 'new'" class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
 <div *ngIf="offer.status == 'new'" class="button col-sm-4 col-md-4 col-lg-6 col-centered"><button class="btn btn-danger" (click)="cancelOffer(offer.id)">Cancel</button></div>
+<div><br></div>
 </div>

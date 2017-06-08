@@ -108,3 +108,10 @@ img{
   max-width:100%;
   max-height:100%;
 }
+.offer-header{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  margin-right: 40px;
+  display:inline;
+}
