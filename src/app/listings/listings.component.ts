@@ -38,7 +38,6 @@ export class ListingsComponent implements OnInit {
         this.listings.forEach((listing)=>{
           this.offerService.onListingOffersRetrieved(listing.id, (data)=>{
             this.listingOffers = data.offers
-            console.log(data)
           })
       })
     })
@@ -49,8 +48,6 @@ export class ListingsComponent implements OnInit {
     }
     hasOffers(listing){
       const result = this.listingOffers.some((offer, index, array)=>{
-        console.log('offer listing id is,',offer._listing)
-        console.log('listing id is ,',listing.id)
         return offer._listing === listing.id;
       })
       return result

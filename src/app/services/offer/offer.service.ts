@@ -38,7 +38,6 @@ export class OfferService {
   getOffers(): Observable<Response> {
     let headers = new Headers();
     headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
-    console.log(headers)
     return this.http.get(this.apiUrl, {headers})
     .map((res:Response) => res.json());
   }
@@ -66,7 +65,6 @@ export class OfferService {
   getListingOffers(id): Observable<Response> {
     let headers = new Headers();
     headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
-    console.log(headers)
     return this.http.get(`${this.apiUrl}/listingOffer/${id}`, {headers})
     .map((res:Response) => res.json());
   }

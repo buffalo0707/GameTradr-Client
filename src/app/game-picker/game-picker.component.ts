@@ -41,7 +41,6 @@ export class GamePickerComponent implements OnInit {
     query['name']=this.searchName
     this.gameService.onGamesRetrieved(query, (data: any) =>{
       this.games = data.Data.Game
-      console.log(this.games)
       this.loading = false
     })
   }

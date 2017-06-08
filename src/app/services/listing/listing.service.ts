@@ -52,7 +52,6 @@ export class ListingService {
   }
 
   editListing(listing): Observable<Response> {
-    console.log('listing inside edit request is', listing)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
