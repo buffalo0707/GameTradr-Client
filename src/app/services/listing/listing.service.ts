@@ -11,7 +11,7 @@ export class ListingService {
   constructor(private http: Http) { }
 
   getListings(): Observable<Response> {
-    return this.http.get(this.apiUrl)
+    return this.http.get(`${this.apiUrl}/?status=active`)
     .map((res:Response) => res.json());
   }
 
@@ -52,6 +52,7 @@ export class ListingService {
   }
 
   editListing(listing): Observable<Response> {
+    console.log('listing inside edit request is', listing)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)

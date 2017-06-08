@@ -16,10 +16,12 @@ export class ViewListingComponent implements OnInit {
   listing: any = {
     game:  {},
     wanted: [],
+    status: String
   }
   offers: any=[]
   loading: false
   offeredGame: any={}
+
   constructor(
     private listingService: ListingService,
     private offerService: OfferService,
@@ -33,6 +35,7 @@ export class ViewListingComponent implements OnInit {
         .switchMap((params: Params) => this.listingService.getListing(params['id']))
         .subscribe((data: any) => {
           this.listing = data.listing
+              console.log(this.listing)
           this.offerService.onListingOffersRetrieved(this.listing.id, (data)=>{
             this.offers = data.offers
             console.log('offers is', this.offers)
@@ -46,6 +49,7 @@ export class ViewListingComponent implements OnInit {
       return
     }
     this.listing.wanted.splice(this.listing.wanted.indexOf(game),1)
+    console.log('listing after delete is', this.listing)
     this.listingService.editListing(this.listing)
     .subscribe(
       error => {
@@ -112,6 +116,9 @@ export class ViewListingComponent implements OnInit {
       error => {
         console.log(error)
       })
+  }
+  isActive(){
+    return this.listing.status === "active"
   }
 
 }
