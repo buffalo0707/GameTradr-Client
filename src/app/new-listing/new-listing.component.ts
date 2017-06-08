@@ -93,6 +93,7 @@ export class NewListingComponent implements OnInit {
 
   onWantedGameSelectionChange(game){
     this.listing.wanted.name = game.GameTitle
+    this.listing.wanted.name = game.id
   }
 
   onDeleted(game){

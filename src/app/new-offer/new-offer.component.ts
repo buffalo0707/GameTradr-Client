@@ -21,7 +21,7 @@ export class NewOfferComponent implements OnInit {
   ngOnInit() {
       this.listing = this.offerService.getListing()
       this.offeredGame = this.offerService.getOfferedGame()
-  }
+      }
 
   onCancel(){
     this.router.navigate(['listings'])
