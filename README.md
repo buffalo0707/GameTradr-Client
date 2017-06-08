@@ -24,12 +24,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## URLS
 API:
--Deployed: https://sleepy-dawn-70018.herokuapp.com/
--Repo: https://github.com/buffalo0707/GameTradr-API
+* Deployed: https://sleepy-dawn-70018.herokuapp.com/
+* Repo: https://github.com/buffalo0707/GameTradr-API
 
 Client:
--Deployed: https://buffalo0707.github.io/GameTradr-Client/home
--Repo: https://github.com/buffalo0707/GameTradr-Client
+* Deployed: https://buffalo0707.github.io/GameTradr-Client/home
+* Repo: https://github.com/buffalo0707/GameTradr-Client
 
 ## User Stories
 
