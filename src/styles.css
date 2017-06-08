@@ -10,3 +10,6 @@ body { padding-top: 50px; }
     margin-right:-4px;
     margin-bottom: 15px;
 }
+.mask{
+  max-width: 100%
+}
