@@ -16,3 +16,6 @@ body { padding-top: 50px; }
 .alert-nobottom-margin{
   margin-bottom:0;
 }
+.jumbotron{
+  background-color: #C63D0F;
+}
