@@ -88,9 +88,20 @@ export class ViewListingComponent implements OnInit {
     this.offerService.updateOffer(offer)
     .subscribe(
       res => {
-        //todo: delete all other offers
+        let index = this.offers.indexOf(offer)
+        this.offers.splice(index,1)
+        this.offers.forEach((offer)=>{
+          offer.status = 'declined'
+          this.offerService.updateOffer(offer)
+          .subscribe(
+            res => {
+              let index = this.offers.indexOf(offer)
+              this.offers.splice(index,1)
+            },
+            error =>{console.log(error)}
+          )
+        })
         this.listing.status = "completed"
-        console.log(this.listing)
         this.listingService.editListing(this.listing)
           .subscribe(
             error => {
