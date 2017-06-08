@@ -17,6 +17,7 @@ import { OfferService } from './services/offer/offer.service';
 import { AlertService } from './services/alert/alert.service';
 
 import { AuthGuard } from './auth.guard';
+import { OfferGuard } from './offer.guard';
 
 import { PasswordComponent } from './password/password.component';
 import { ListingsComponent } from './listings/listings.component';
@@ -52,7 +53,7 @@ import { AlertComponent } from './alert/alert.component';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService, ListingService, GameService, OfferService, AlertService, AuthGuard],
+  providers: [AuthService, ListingService, GameService, OfferService, AlertService, AuthGuard, OfferGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
