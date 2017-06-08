@@ -17,6 +17,7 @@ export class ViewListingComponent implements OnInit {
     game:  {},
     wanted: [],
   }
+  offers: any=[]
   loading: false
   offeredGame: any={}
   constructor(
@@ -32,7 +33,12 @@ export class ViewListingComponent implements OnInit {
         .switchMap((params: Params) => this.listingService.getListing(params['id']))
         .subscribe((data: any) => {
           this.listing = data.listing
-    })}
+          this.offerService.onListingOffersRetrieved(this.listing.id, (data)=>{
+            this.offers = data.offers
+            console.log('offers is', this.offers)
+          })
+    })
+  }
   onDeleteSelected(game){
     if(this.listing.wanted.length === 1){
       this.alertService.error("Sorry, every listing must have at least one Wanted Game!")
@@ -67,6 +73,18 @@ export class ViewListingComponent implements OnInit {
     this.offerService.setListing(this.listing)
     this.offerService.setOfferedGame(game)
     this.router.navigate(['offers/new'])
+  }
+  declineOffer(offer){
+    offer.status = "declined"
+    this.offerService.updateOffer(offer)
+    .subscribe(
+      res => {
+        let index = this.offers.indexOf(offer)
+        this.offers.splice(index,1)
+      },
+      error => {
+        console.log(error)
+      })
   }
 
 }

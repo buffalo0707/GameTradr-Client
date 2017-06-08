@@ -63,4 +63,11 @@ export class OfferService {
   onListingOffersRetrieved(id, callback: any): void {
   this.getListingOffers(id).subscribe(callback);
   }
+  updateOffer(offer): Observable<Response> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    return this.http.patch(`${this.apiUrl}/${offer.id}`, JSON.stringify({status: offer.status}), { headers })
+    .map((res:Response) => res.json());
+  }
 }
