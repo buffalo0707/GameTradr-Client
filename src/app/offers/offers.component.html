@@ -2,7 +2,17 @@
   <h3>Offers You've Made</h3>
 </div>
 <div class="container offer" *ngFor="let offer of offers">
-  <div>Date: {{offer.createdAt | date:'shortDate'}}</div>
+  <div></div>
+  <div *ngIf="offer.status == 'new'" class="alert alert-info alert-nobottom-margin">
+    <p>Date Created: {{offer.createdAt | date:'shortDate'}}</p>
+    <p>Status: Pending</p></div>
+  <div *ngIf="offer.status == 'declined'" class="alert alert-danger alert-nobottom-margin">
+    <p>Date Created: {{offer.createdAt | date:'shortDate'}}</p>
+    <p>Status: Declined</p>
+  </div>
+  <div *ngIf="offer.status == 'accepted'" class="alert alert-success alert-nobottom-margin">
+    <p>Date Created: {{offer.createdAt | date:'shortDate'}}</p>
+    <p>Status: Accepted</p></div>
   <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
     <div class="panel-heading">You Offered:</div>
     <div class="panel-body">
@@ -17,6 +27,6 @@
     System: {{offer.game.system}}
   </div>
 </div>
-<div class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
-<div class="button col-sm-4 col-md-4 col-lg-6 col-centered"><button class="btn btn-danger" (click)="cancelOffer(offer.id)">Cancel</button></div>
+<div *ngIf="offer.status == 'new'" class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
+<div *ngIf="offer.status == 'new'" class="button col-sm-4 col-md-4 col-lg-6 col-centered"><button class="btn btn-danger" (click)="cancelOffer(offer.id)">Cancel</button></div>
 </div>

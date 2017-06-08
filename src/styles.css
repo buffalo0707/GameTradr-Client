@@ -13,3 +13,6 @@ body { padding-top: 50px; }
 .mask{
   max-width: 100%
 }
+.alert-nobottom-margin{
+  margin-bottom:0;
+}

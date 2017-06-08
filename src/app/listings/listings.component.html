@@ -25,7 +25,7 @@
 
 <div *ngFor="let listing of listings">
   <div class="container">
-    <div class="row row-centered alert alert-success offer-alert"  *ngIf="hasOffers(listing)">
+    <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="hasOffers(listing)">
       <span>There is an offer on this listing!</span>
   </div>
     <div class="row row-centered text-center listing is-flex" (click)="getListing(listing)">
