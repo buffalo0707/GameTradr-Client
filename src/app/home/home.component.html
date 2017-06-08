@@ -15,6 +15,6 @@
     </div>
   </div>
   <div>
-    <button class="btn btn-primary" routerLink="/login">Sign-In</button><button class="btn btn-primary" routerLink="/listings">Browse Listings</button>
+    <button class="btn btn-primary" routerLink="/login" *ngIf="!loggedIn()">Sign-In</button><button class="btn btn-primary" routerLink="/listings">Browse Listings</button>
   </div>
 </div>

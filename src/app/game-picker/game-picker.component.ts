@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { ListingService } from '../services/listing/listing.service'
 import { GameService } from '../services/game/game.service'
 import { Router, ActivatedRoute } from '@angular/router';
+import { AlertService } from '../services/alert/alert.service'
 
 @Component({
   selector: 'app-game-picker',
@@ -24,6 +25,7 @@ export class GamePickerComponent implements OnInit {
   constructor(
     private listingService: ListingService,
     private gameService: GameService,
+    private alertService: AlertService,
     private router: Router) { }
 
 
@@ -35,13 +37,21 @@ export class GamePickerComponent implements OnInit {
     this.games = []
   }
   gameSearch(){
+    this.alertService.clearAlert()
     this.loading = true
     let query = {}
     query['system']= this.game.system
     query['name']=this.searchName
     this.gameService.onGamesRetrieved(query, (data: any) =>{
+      console.log(data)
+      if(data.Data===""){
+        this.alertService.error("No games found :( Try again!")
+        this.loading = false
+        return
+      }
       this.games = data.Data.Game
       this.loading = false
+
     })
   }
   onGameSelectionChange(game){

@@ -2,7 +2,7 @@
     <div class="container">
       <div><h3>Listing Info</h3></div>
       <div>
-        <button *ngIf="userOwned()" (click)="deleteListing()" class="btn btn-danger">Delete Listing</button>
+        <button *ngIf="userOwned() && isActive() && offers.length === 0" (click)="deleteListing()" class="btn btn-danger">Delete Listing</button>
         <button routerLink="/listings" class="btn btn-primary">Back to Listings</button>
       </div>
       <br>

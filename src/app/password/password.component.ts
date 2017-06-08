@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service'
 import {Location} from '@angular/common'
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AlertService } from '../services/alert/alert.service'
 
 @Component({
   selector: 'app-password',
@@ -12,7 +14,9 @@ export class PasswordComponent implements OnInit {
   loading = false;
   constructor(
     private authService: AuthService,
-    private _location: Location) { }
+    private _location: Location,
+    private alertService: AlertService,
+  private router: Router,) { }
 
   ngOnInit() {
   }
@@ -23,10 +27,11 @@ export class PasswordComponent implements OnInit {
     this.authService.changePassword(this.passwords)
     .subscribe(
       res => {
+        this.alertService.error("Password changed successfully :)")
         this.loading = false
       },
       error => {
-        console.log(error)
+        this.alertService.error("Password not changed! Check your password and try again.")
         this.loading = false
       }
     )
