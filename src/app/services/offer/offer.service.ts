@@ -52,4 +52,15 @@ export class OfferService {
     return this.http.delete(`${this.apiUrl}/${id}`, { headers })
     .map((res:Response) => res.json());
   }
+
+  getListingOffers(id): Observable<Response> {
+    let headers = new Headers();
+    headers.append('Authorization', 'Token token=' + JSON.parse(localStorage.getItem('currentUser')).user.token)
+    console.log(headers)
+    return this.http.get(`${this.apiUrl}/listingOffer/${id}`, {headers})
+    .map((res:Response) => res.json());
+  }
+  onListingOffersRetrieved(id, callback: any): void {
+  this.getListingOffers(id).subscribe(callback);
+  }
 }

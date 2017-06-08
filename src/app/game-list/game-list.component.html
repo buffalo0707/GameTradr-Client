@@ -9,7 +9,7 @@
       <h3>{{game.name}}</h3>
       <h4>for</h4>
       <h3>{{game.system}}</h3>
-        <div class="mask flex-center">
+        <div class="mask flex-center" (click)="onDeleteSelect(game)">
             <p class="white-text">Delete</p>
         </div>
     </div>
@@ -17,7 +17,7 @@
       <h3>{{game.name}}</h3>
       <h4>for</h4>
       <h3>{{game.system}}</h3>
-        <div class="mask flex-center">
+        <div class="mask flex-center" (click)="onTradeSelect(game)">
             <p class="white-text">Make an Offer</p>
         </div>
     </div>

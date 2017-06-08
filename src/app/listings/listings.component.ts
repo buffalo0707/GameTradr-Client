@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../services/listing/listing.service'
+import { OfferService } from '../services/offer/offer.service'
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,16 +10,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListingsComponent implements OnInit {
   listings = []
+  listingOffers = []
   myListings = false
   constructor(
     private listingService: ListingService,
+    private offerService: OfferService,
     private router: Router) { }
 
     ngOnInit() {
       this.listingService.onListingsRetrieved((data) =>{
         this.listings = data.listings
-      })
-    }
+        })
+      }
+
 
     getListing(listing) {
       this.router.navigate(['view-listing', listing.id]);
@@ -31,7 +35,13 @@ export class ListingsComponent implements OnInit {
       this.listingService.onMyListingsRetrieved((data)=>{
         this.listings = data.listings
         this.myListings = true
+        this.listings.forEach((listing)=>{
+          this.offerService.onListingOffersRetrieved(listing.id, (data)=>{
+            this.listingOffers = data.offers
+            console.log(data)
+          })
       })
+    })
     }
     showAllListings(){
       this.ngOnInit()
