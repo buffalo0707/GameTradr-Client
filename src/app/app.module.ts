@@ -29,6 +29,7 @@ import { GameListComponent } from './game-list/game-list.component';
 import { NewOfferComponent } from './new-offer/new-offer.component';
 import { OffersComponent } from './offers/offers.component';
 import { AlertComponent } from './alert/alert.component';
+import { ViewOfferComponent } from './view-offer/view-offer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AlertComponent } from './alert/alert.component';
     GameListComponent,
     NewOfferComponent,
     OffersComponent,
-    AlertComponent
+    AlertComponent,
+    ViewOfferComponent
   ],
   imports: [
     BrowserModule,

@@ -78,4 +78,9 @@ export class OfferService {
     return this.http.patch(`${this.apiUrl}/${offer.id}`, JSON.stringify({status: offer.status}), { headers })
     .map((res:Response) => res.json());
   }
+  getOffer(id): Observable<Response> {
+    return this.http.get(`${this.apiUrl}/${id}`)
+    .map((res:Response) => res.json());
+  }
+
 }

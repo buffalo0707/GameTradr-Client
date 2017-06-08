@@ -43,4 +43,12 @@ export class AuthService {
     return this.http.patch(passwordURL, JSON.stringify(password), { headers })
     .map((res:Response) => res.json());
   }
+
+  getUser(id): Observable<Response> {
+    let headers = new Headers();
+    let currentUser = JSON.parse(localStorage.getItem('currentUser')).user
+    headers.append('Authorization', `Token token=${currentUser.token}`)
+    return this.http.get(`${this.apiUrl}/users/${id}`, { headers })
+    .map((res:Response) => res.json());
+  }
 }

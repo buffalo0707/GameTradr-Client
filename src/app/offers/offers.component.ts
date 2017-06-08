@@ -31,5 +31,8 @@ export class OffersComponent implements OnInit {
         console.log(error)
       })
   }
+  viewOffer(id) {
+    this.router.navigate([`view-offer`, id])
+  }
 
 }

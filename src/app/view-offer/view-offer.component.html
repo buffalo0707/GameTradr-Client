@@ -1,0 +1,12 @@
+<div *ngIf="offer.status === 'accepted'">
+  <div class="panel panel-info col-sm-6 col-centered">
+    <div class="panel-heading">
+    <h2>Congratulations!</h2>
+  </div>
+  <div class="panel-body">
+    <p>Your offer has been accepted.</p>
+    <p> Please reach out to the following user to coordinate exchanging games:</p>
+    <h3><a href="mailto:user.email?Subject=GameTradr%20-%20Trade%20for%20{{offer.game.name}}" target="_top">{{user.email}}</a></h3>
+  </div>
+</div>
+</div>
