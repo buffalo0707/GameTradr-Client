@@ -20,12 +20,12 @@
 
 <div>
   <div>
-    <h2><span *ngIf="!myListings">All Available</span><span *ngIf="myListings">Your </span> Listings</h2>
+    <h2 class="white-text"><span *ngIf="!myListings">All Available</span><span *ngIf="myListings">Your </span> Listings</h2>
   </div>
 <br>
 </div>
 <div *ngIf="listings.length === 0" [hidden]="!myListings">
-  <h3>You have no listings :(</h3>
+  <h3 class="white-text">You have no listings :(</h3>
 </div>
 <div style="margin-bottom:5px" *ngFor="let listing of listings">
   <div class="container">
