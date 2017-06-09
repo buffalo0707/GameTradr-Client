@@ -1,15 +1,17 @@
 
 <div class="container" *ngIf="loggedIn()">
   <div class="row row-centered">
-  <div class="col-lg-6 col-centered text-center">
+  <div class="panel col-lg-5 col-centered text-center">
     <h3 class="text-center"> Have a game to trade?</h3>
     <button class="btn btn-primary align-center" routerLink="/new-listing" >Add New Listing</button>
   </div>
-  <div *ngIf="!myListings" class="col-lg-6 col-centered">
+  <div class="  hidden-xs col-lg-2 col-centered">
+  </div>
+  <div *ngIf="!myListings" class=" panel col-lg-5 col-centered">
     <h3> View/Delete Your listings</h3>
     <button class="btn btn-primary" (click)="showMyListings()">Click here</button>
   </div>
-  <div *ngIf="myListings" class="col-lg-6 col-centered">
+  <div *ngIf="myListings" class="panel col-lg-5 col-centered">
     <h3> View All Listings</h3>
     <button class="btn btn-primary" (click)="showAllListings()">Click here</button>
   </div>
