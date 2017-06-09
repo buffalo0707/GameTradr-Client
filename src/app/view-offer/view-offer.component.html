@@ -16,9 +16,14 @@
     <h2>Patience...</h2>
   </div>
   <div class="panel-body">
-    <p>Your offer is pending acceptance.</p>
+    <h4>Your offer is pending acceptance.</h4>
     <p>Once your offer is accepted, check back here to see how to contact the owner!</p>
     <button class="btn btn-primary" (click)="goBack()">Back</button>
+  </div>
+  <div class="panel-body">
+    <h4>Want to cancel?</h4>
+    <p>Offers can be cancelled anytime before they are accepted or declined.<br>This will delete the offer forever.</p>
+    <button class="btn btn-danger" (click)="cancelOffer">Cancel Offer</button>
   </div>
 </div>
 </div>

@@ -39,5 +39,14 @@ export class ViewOfferComponent implements OnInit {
     goBack(){
       this.router.navigate(['offers'])
     }
-
+    cancelOffer(){
+      this.offerService.deleteOffer(this.offer.id)
+      .subscribe(
+        res => {
+          this.router.navigate(['offers'])
+        },
+        error => {
+          console.log(error)
+        })
+    }
 }
