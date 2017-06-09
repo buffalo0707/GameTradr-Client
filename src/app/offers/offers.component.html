@@ -1,6 +1,9 @@
 <div>
   <h3>Offers You've Made</h3>
 </div>
+<div *ngIf="offers.length === 0">
+  <h4>You haven't made any offers:(</h4>
+</div>
 <div class="container offer" *ngFor="let offer of offers">
   <div></div>
   <div *ngIf="offer.status == 'new'" class="alert alert-info alert-nobottom-margin">

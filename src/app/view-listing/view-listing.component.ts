@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ListingService } from '../services/listing/listing.service'
 import { AlertService } from '../services/alert/alert.service'
 import { OfferService } from '../services/offer/offer.service'
+import { AuthService } from '../services/auth/auth.service'
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import 'rxjs/add/operator/switchMap'
@@ -21,10 +22,13 @@ export class ViewListingComponent implements OnInit {
   offers: any=[]
   loading: false
   offeredGame: any={}
+  acceptedOffer: any={}
+  user: any={}
 
   constructor(
     private listingService: ListingService,
     private offerService: OfferService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private alertService: AlertService,
     private router: Router,
@@ -37,7 +41,16 @@ export class ViewListingComponent implements OnInit {
           this.listing = data.listing
           this.offerService.onListingOffersRetrieved(this.listing.id, (data)=>{
             this.offers = data.offers
+            console.log(this.offers)
+            if(this.listing.status === 'completed'){
+              this.authService.getUser(this.offers[0]._owner)
+              .subscribe((data: any)=>{
+                this.user = data.user
+                console.log(this.user)})
+            }
           })
+
+
     })
   }
   onDeleteSelected(game){
@@ -105,6 +118,9 @@ export class ViewListingComponent implements OnInit {
         this.listing.status = "completed"
         this.listingService.editListing(this.listing)
           .subscribe(
+            res => {
+              this.ngOnInit()
+            },
             error => {
               console.log(error)
             }

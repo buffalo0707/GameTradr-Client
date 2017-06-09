@@ -30,7 +30,7 @@
 <div style="margin-bottom:0px" class="panel col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
   <div class="view overlay hm-stylish-strong">
     <div class="panel-heading">
-      <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="hasOffers(listing)">
+      <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="hasOffers(listing) && listing.status !=='completed'">
         <span>There is an offer on this listing!</span>
     </div>
     <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="listing.status =='completed'">
@@ -54,8 +54,8 @@
     <h4>Click for details</h4>
   </div>
 </div>
-      <div class="mask flex-center" (click)="onDeleteSelect(game)">
-          <button class="btn btn-primary">View Details</button>
+      <div class="mask flex-center">
+          <button class="btn btn-primary" (click)="getListing(listing)">View Details</button>
       </div>
 </div>
 
