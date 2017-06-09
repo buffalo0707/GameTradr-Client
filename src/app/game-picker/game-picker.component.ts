@@ -48,7 +48,7 @@ export class GamePickerComponent implements OnInit {
         this.loading = false
         return
       }
-      if(data.Data == Array){
+      if(data.Data.Game.length > 1){
         this.games = data.Data.Game
         this.loading = false
         return
