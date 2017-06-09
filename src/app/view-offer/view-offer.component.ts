@@ -36,7 +36,6 @@ export class ViewOfferComponent implements OnInit {
           this.authService.getUser(this.listing._owner)
           .subscribe((data: any) => {
             this.user = data.user
-            console.log(this.user)
           })
         })
 

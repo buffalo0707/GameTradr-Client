@@ -41,12 +41,10 @@ export class ViewListingComponent implements OnInit {
           this.listing = data.listing
           this.offerService.onListingOffersRetrieved(this.listing.id, (data)=>{
             this.offers = data.offers
-            console.log(this.offers)
             if(this.listing.status === 'completed'){
               this.authService.getUser(this.offers[0]._owner)
               .subscribe((data: any)=>{
-                this.user = data.user
-                console.log(this.user)})
+                this.user = data.user})
             }
           })
 
