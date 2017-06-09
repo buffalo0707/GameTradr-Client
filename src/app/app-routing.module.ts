@@ -27,7 +27,10 @@ const routes: Routes = [
    { path: 'new-listing',  component: NewListingComponent, canActivate: [AuthGuard] },
    { path: 'edit-listing/:id',  component: EditListingComponent, canActivate: [AuthGuard] },
    { path: 'view-listing/:id',  component: ViewListingComponent, canActivate: [AuthGuard]  },
-   { path: 'view-offer/:id',  component: ViewOfferComponent, canActivate: [AuthGuard]  },
+   { path: 'view-offer/:id',  component: ViewOfferComponent, canActivate: [AuthGuard], pathMatch: 'full'  },
+   { path: 'view-offer',  component: OffersComponent, canActivate: [AuthGuard]},
+   { path: 'view-listing',  component: ListingsComponent, canActivate: [AuthGuard]},
+   { path: 'edit-listing',  component: ListingsComponent, canActivate: [AuthGuard]},
    { path: 'offers/new',  component: NewOfferComponent, canActivate: [AuthGuard, OfferGuard] ,},
    { path: 'offers',  component: OffersComponent, canActivate: [AuthGuard] }
 
