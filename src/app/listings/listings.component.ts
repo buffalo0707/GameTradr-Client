@@ -12,6 +12,7 @@ export class ListingsComponent implements OnInit {
   listings = []
   listingOffers = []
   myListings = false
+  newOffers = []
   constructor(
     private listingService: ListingService,
     private offerService: OfferService,
@@ -48,7 +49,7 @@ export class ListingsComponent implements OnInit {
     }
     hasOffers(listing){
       const result = this.listingOffers.some((offer, index, array)=>{
-        return offer._listing === listing.id;
+        return offer._listing === listing.id && offer.status ==='new'
       })
       return result
     }

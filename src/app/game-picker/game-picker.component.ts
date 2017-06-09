@@ -43,6 +43,7 @@ export class GamePickerComponent implements OnInit {
     query['system']= this.game.system
     query['name']=this.searchName
     this.gameService.onGamesRetrieved(query, (data: any) =>{
+      console.log(data)
       if(data.Data===""){
         this.alertService.error("No games found :( Try again!")
         this.loading = false
