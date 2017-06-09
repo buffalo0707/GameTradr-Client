@@ -9,3 +9,12 @@
 .alert-nobottom-margin{
   margin-bottom:0;
 }
+
+.listing-header{
+  border-bottom: 1px solid black;
+  background-color: #008cba;
+  color: white;
+}
+.header-text{
+  margin: 8px
+}

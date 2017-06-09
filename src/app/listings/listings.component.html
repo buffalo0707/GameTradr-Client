@@ -5,7 +5,7 @@
     <h3 class="text-center"> Have a game to trade?</h3>
     <button class="btn btn-primary align-center" routerLink="/new-listing" >Add New Listing</button>
   </div>
-  <div class="  hidden-xs col-lg-2 col-centered">
+  <div class="  hidden-xs col-lg-1 col-centered">
   </div>
   <div *ngIf="!myListings" class=" panel col-lg-5 col-centered">
     <h3> View/Delete Your listings</h3>
@@ -27,9 +27,9 @@
 <div *ngIf="listings.length === 0" [hidden]="!myListings">
   <h3>You have no listings :(</h3>
 </div>
-<div *ngFor="let listing of listings">
+<div style="margin-bottom:5px" *ngFor="let listing of listings">
   <div class="container">
-<div style="margin-bottom:0px" class="panel panel-primary col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
+<div style="margin-bottom:0px" style="padding:0px" class="panel panel-primary col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
   <div class="view overlay hm-stylish-strong">
     <div>
       <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="hasOffers(listing) && listing.status !=='completed'">
@@ -39,28 +39,28 @@
       <span>Listing is complete</span>
   </div>
   </div>
-  <div class="row row-centered">
-    <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
-      <h3>Trading:</h3>
+  <div style="background-color: blue" style="" class="row row-centered listing-header">
+    <div class="col-centered col-xs-5 col-sm-4 col-md-4 col-lg-5 col-xl-5">
+      <h3 class="header-text">Trading:</h3>
     </div>
-    <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
-      <h3 >Asking For:</h3>
+    <div class="col-centered col-xs-5 col-sm-4 col-md-4 col-lg-5 col-xl-5">
+      <h3 class="header-text">Asking For:</h3>
     </div>
   </div>
     <div class="row row-centered">
-  <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+  <div class="col-centered col-xs-5 col-sm-4 col-md-4 col-lg-5 col-xl-5">
 
     <h3>{{listing.game.name}}</h3>
     <h4>for</h4>
     <h3>{{listing.game.system}}</h3>
   </div>
-  <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" *ngIf="listing.wanted.length === 1">
+  <div class="col-centered col-xs-5 col-sm-4 col-md-4 col-lg-5 col-xl-5" *ngIf="listing.wanted.length === 1">
 
     <h3>{{listing.wanted[0].name}}</h3>
     <h4>for</h4>
     <h3>{{listing.wanted[0].system}}</h3>
   </div>
-  <div class="col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" *ngIf="listing.wanted.length > 1">
+  <div class="col-centered col-xs-5 col-sm-4 col-md-4 col-lg-5 col-xl-5" *ngIf="listing.wanted.length > 1">
     <h3>Multiple Games</h3>
     <h4>-</h4>
     <h3>Click for details</h3>

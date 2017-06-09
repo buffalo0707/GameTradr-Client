@@ -17,14 +17,14 @@
     <h4 class="offer-header">Date Created: {{offer.createdAt | date:'shortDate'}}</h4>
     <h4 class="offer-header">Status: Accepted</h4></div>
   <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
-    <div class="panel-heading">You Offered:</div>
+    <div><h5>You Offered:</h5></div>
     <div class="panel-body">
       Game: {{offer.offeredGame.name}}<br>
       System: {{offer.offeredGame.system}}
     </div>
   </div>
   <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
-  <div class="panel-heading">In Exchange For:</div>
+  <div><h5>In Exchange For:</h5></div>
   <div class="panel-body">
     Game: {{offer.game.name}}<br>
     System: {{offer.game.system}}
