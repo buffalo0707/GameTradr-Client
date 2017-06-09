@@ -27,9 +27,9 @@
 </div>
 <div *ngFor="let listing of listings">
   <div class="container">
-<div style="margin-bottom:0px" class="panel col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
+<div style="margin-bottom:0px" class="panel panel-primary col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-centered">
   <div class="view overlay hm-stylish-strong">
-    <div class="panel-heading">
+    <div>
       <div class="row row-centered alert alert-success alert-nobottom-margin"  *ngIf="hasOffers(listing) && listing.status !=='completed'">
         <span>There is an offer on this listing!</span>
     </div>
@@ -38,20 +38,30 @@
   </div>
   </div>
   <div class="row row-centered">
-  <div class="panel-body col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+    <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+      <h3>Trading:</h3>
+    </div>
+    <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+      <h3 >Asking For:</h3>
+    </div>
+  </div>
+    <div class="row row-centered">
+  <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+
     <h3>{{listing.game.name}}</h3>
     <h4>for</h4>
     <h3>{{listing.game.system}}</h3>
   </div>
-  <div class="panel-body col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" *ngIf="listing.wanted.length === 1">
+  <div class=" col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" *ngIf="listing.wanted.length === 1">
+
     <h3>{{listing.wanted[0].name}}</h3>
     <h4>for</h4>
     <h3>{{listing.wanted[0].system}}</h3>
   </div>
-  <div class="panel-body col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" *ngIf="listing.wanted.length > 1">
+  <div class="col-centered col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" *ngIf="listing.wanted.length > 1">
     <h3>Multiple Games</h3>
     <h4>-</h4>
-    <h4>Click for details</h4>
+    <h3>Click for details</h3>
   </div>
 </div>
       <div class="mask flex-center">
