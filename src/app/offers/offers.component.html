@@ -4,7 +4,7 @@
 <div *ngIf="offers.length === 0">
   <h4>You haven't made any offers:(</h4>
 </div>
-<div class="container offer" *ngFor="let offer of offers">
+<div class="panel container offer" *ngFor="let offer of offers">
   <div></div>
   <div *ngIf="offer.status == 'new'" class="alert alert-info alert-nobottom-margin">
     <h4 class="offer-header">Date Created: {{offer.createdAt | date:'shortDate'}}</h4>
@@ -16,18 +16,18 @@
   <div *ngIf="offer.status == 'accepted'" class="alert alert-success alert-nobottom-margin">
     <h4 class="offer-header">Date Created: {{offer.createdAt | date:'shortDate'}}</h4>
     <h4 class="offer-header">Status: Accepted</h4></div>
-  <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
-    <div><h5>You Offered:</h5></div>
+  <div class="col-sm-4 col-md-4 col-lg-6 col-centered game">
+    <div><h4>You Offered:</h4></div>
     <div class="panel-body">
-      Game: {{offer.offeredGame.name}}<br>
-      System: {{offer.offeredGame.system}}
+      {{offer.offeredGame.name}}<br>
+      {{offer.offeredGame.system}}
     </div>
   </div>
-  <div class="panel panel-info col-sm-4 col-md-4 col-lg-6 col-centered game">
-  <div><h5>In Exchange For:</h5></div>
+  <div class="col-sm-4 col-md-4 col-lg-6 col-centered game">
+  <div><h4>In Exchange For:</h4></div>
   <div class="panel-body">
-    Game: {{offer.game.name}}<br>
-    System: {{offer.game.system}}
+    {{offer.game.name}}<br>
+    {{offer.game.system}}
   </div>
 </div>
 <div *ngIf="offer.status == 'accepted' || offer.status == 'new'" class="overlay col-sm-4 col-md-4 col-lg-6 col-centered"></div>
