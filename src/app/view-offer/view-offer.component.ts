@@ -15,6 +15,7 @@ import 'rxjs/add/operator/switchMap'
 export class ViewOfferComponent implements OnInit {
   offer :any = {}
   user :any = {}
+  listing: any={}
   constructor(
     private listingService: ListingService,
     private offerService: OfferService,
@@ -29,11 +30,16 @@ export class ViewOfferComponent implements OnInit {
       .switchMap((params: Params) => this.offerService.getOffer(params['id']))
       .subscribe((data: any) => {
         this.offer= data.offer
-        this.authService.getUser(this.offer._owner)
-        .subscribe((data: any) => {
-          this.user = data.user
-          console.log(this.user)
+        this.listingService.getListing(this.offer._listing)
+        .subscribe((data:any)=>{
+          this.listing = data.listing
+          this.authService.getUser(this.listing._owner)
+          .subscribe((data: any) => {
+            this.user = data.user
+            console.log(this.user)
+          })
         })
+
       })
     }
     goBack(){
